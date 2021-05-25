@@ -1,0 +1,816 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     31405,        806]
+NotebookOptionsPosition[     30413,        780]
+NotebookOutlinePosition[     30775,        796]
+CellTagsIndexPosition[     30732,        793]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"(*", " ", 
+  RowBox[{"Gaseous", " ", "phase", " ", "partition", " ", "function"}], " ", 
+  "*)"}]], "Input",
+ CellChangeTimes->{{3.830909471548934*^9, 3.8309094926686897`*^9}, {
+  3.8309095386199017`*^9, 
+  3.8309095497404213`*^9}},ExpressionUUID->"bfce6044-8834-4e0a-a5ac-\
+65839cd61055"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"Block", "[", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"MonteCarloSum", ",", 
+      RowBox[{"n", "=", 
+       RowBox[{"2", "*", 
+        RowBox[{"10", "^", "4"}]}]}], ",", 
+      RowBox[{"k", "=", 
+       RowBox[{"1.38", "*", 
+        RowBox[{"10", "^", 
+         RowBox[{"(", 
+          RowBox[{"-", "23"}], ")"}]}]}]}], ",", "T", ",", 
+      RowBox[{"P", "=", 
+       RowBox[{"9", "*", 
+        RowBox[{"10", "^", "5"}]}]}], ",", 
+      RowBox[{"q", "=", 
+       RowBox[{"1.6", "*", 
+        RowBox[{"10", "^", 
+         RowBox[{"(", 
+          RowBox[{"-", "19"}], ")"}]}]}]}], ",", 
+      RowBox[{"m", "=", 
+       RowBox[{"10", "^", 
+        RowBox[{"(", 
+         RowBox[{"-", "26"}], ")"}]}]}], ",", 
+      RowBox[{"h", "=", 
+       RowBox[{"6.63", "*", 
+        RowBox[{"10", "^", 
+         RowBox[{"(", 
+          RowBox[{"-", "34"}], ")"}]}]}]}], ",", 
+      RowBox[{"E0", "=", 
+       RowBox[{"10", "^", "15"}]}]}], "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"MonteCarloSum", "[", 
+       RowBox[{
+       "n_", ",", "P_", ",", "T_", ",", "q_", ",", "m_", ",", "h_", ",", 
+        "E0_"}], "]"}], ":=", 
+      RowBox[{"Block", "[", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"r", ",", "s", ",", "A", ",", "sum", ",", "sum1"}], "}"}], 
+        ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"sum", "=", "0"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"A", "=", 
+          RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"r", "=", "0"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"While", "[", "\[IndentingNewLine]", 
+          RowBox[{"True", ",", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"r", "=", 
+             RowBox[{"r", "+", "1"}]}], ";", "\[IndentingNewLine]", 
+            RowBox[{"s", "=", 
+             RowBox[{"RandomVariate", "[", 
+              RowBox[{"BinomialDistribution", "[", 
+               RowBox[{"n", ",", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"n", "/", "2"}], "-", "1"}], ")"}], "/", "n"}]}], 
+               "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"MemberQ", "[", 
+               RowBox[{"A", ",", "s"}], "]"}], ",", 
+              RowBox[{"Continue", "[", "]"}], ",", 
+              RowBox[{"AppendTo", "[", 
+               RowBox[{"A", ",", "s"}], "]"}]}], "]"}], ";", 
+            "\[IndentingNewLine]", 
+            RowBox[{"sum1", "=", "sum"}], ";", "\[IndentingNewLine]", 
+            RowBox[{"sum", "=", 
+             RowBox[{"sum", "+", 
+              RowBox[{
+               RowBox[{"Binomial", "[", 
+                RowBox[{"n", ",", "s"}], "]"}], "*", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"-", "1"}], ")"}], "^", "s"}], "*", 
+               RowBox[{"(", 
+                RowBox[{"k", " ", 
+                 RowBox[{
+                  RowBox[{"T", "/", "108"}], "/", "P"}], 
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"36", " ", 
+                    RowBox[{"HypergeometricPFQ", "[", 
+                    RowBox[{
+                    RowBox[{"{", "1", "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"1", "/", "3"}], ",", 
+                    RowBox[{"2", "/", "3"}]}], "}"}], ",", 
+                    RowBox[{
+                    RowBox[{"-", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"q", " ", "E0"}], ")"}], "^", "3"}]}], 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"s", "+", "n"}], ")"}], "^", "3"}], "/", "1728"}],
+                     "/", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"k", " ", "T"}], ")"}], "^", "2"}]}], "/", 
+                    "P"}]}]}], "]"}]}], "+", 
+                   RowBox[{"\[Pi]", " ", 
+                    RowBox[{"Sqrt", "[", 
+                    RowBox[{"k", " ", 
+                    RowBox[{"T", "/", "P"}]}], "]"}], 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"q", " ", "E0", " ", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"s", "+", "n"}], ")"}], "/", "k"}], "/", "T"}]}], 
+                    ")"}], "^", 
+                    RowBox[{"(", 
+                    RowBox[{"3", "/", "2"}], ")"}]}], 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"BesselJ", "[", 
+                    RowBox[{
+                    RowBox[{"1", "/", "3"}], ",", 
+                    RowBox[{
+                    RowBox[{"1", "/", "12"}], 
+                    RowBox[{"Sqrt", "[", 
+                    RowBox[{"k", " ", 
+                    RowBox[{
+                    RowBox[{"T", "/", "3"}], "/", "P"}]}], "]"}], 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"q", " ", "E0", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"s", "+", "n"}], ")"}], "/", "k"}], "/", "T"}]}], 
+                    ")"}], "^", 
+                    RowBox[{"(", 
+                    RowBox[{"3", "/", "2"}], ")"}]}]}]}], "]"}], "-", 
+                    RowBox[{"BesselJ", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "1"}], "/", "3"}], ",", 
+                    RowBox[{
+                    RowBox[{"1", "/", "12"}], 
+                    RowBox[{"Sqrt", "[", 
+                    RowBox[{"k", " ", 
+                    RowBox[{
+                    RowBox[{"T", "/", "3"}], "/", "P"}]}], "]"}], 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"q", " ", "E0", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"s", "+", "n"}], ")"}], "/", "k"}], "/", "T"}]}], 
+                    ")"}], "^", 
+                    RowBox[{"(", 
+                    RowBox[{"3", "/", "2"}], ")"}]}]}]}], "]"}]}], ")"}]}]}], 
+                  ")"}]}], ")"}]}]}]}], ";", "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{
+                RowBox[{"Abs", "[", 
+                 RowBox[{"sum1", "-", "sum"}], "]"}], "/", 
+                RowBox[{"Abs", "[", 
+                 RowBox[{"sum1", "+", "0.01"}], "]"}]}], "<", 
+               RowBox[{"10", "^", 
+                RowBox[{"(", 
+                 RowBox[{"-", "3"}], ")"}]}]}], ",", 
+              RowBox[{"Break", "[", "]"}]}], "]"}], ";"}]}], 
+          "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"Return", "[", "sum", "]"}], ";"}]}], "\[IndentingNewLine]", 
+       "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"ListLinePlot", "[", 
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{"Log", "[", 
+          RowBox[{"Abs", "[", 
+           RowBox[{"MonteCarloSum", "[", 
+            RowBox[{
+            "n", ",", "P", ",", "T", ",", "q", ",", "m", ",", "h", ",", 
+             "E0"}], "]"}], "]"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"T", ",", "200", ",", "1000", ",", "50"}], "}"}]}], "]"}], 
+       "]"}], "//", "Print"}], ";"}]}], "\[IndentingNewLine]", 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.830907101582582*^9, 3.830907146302339*^9}, {
+   3.8309071939276953`*^9, 3.830907244938188*^9}, {3.830907284036282*^9, 
+   3.8309072843735743`*^9}, {3.830907395049752*^9, 3.8309073958864937`*^9}, 
+   3.8309094680419903`*^9, {3.830909573158691*^9, 
+   3.830909747775178*^9}},ExpressionUUID->"366412c7-a0c7-4c5c-8102-\
+4509d950cd0a"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, {}, 
+    {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.019444444444444445`],
+      AbsoluteThickness[1.6], 
+     LineBox[{{1., 13815.897145954183`}, {2., 13817.586409052174`}, {3., 
+      13816.980415918468`}, {4., 13817.242399606923`}, {5., 
+      13818.576141687729`}, {6., 13817.5660857367}, {7., 
+      13818.381277933264`}, {8., 13816.35899254068}, {9., 
+      13817.155150887553`}, {10., 13817.272389041518`}, {11., 
+      13817.961445955472`}, {12., 13816.37400801439}, {13., 
+      13818.392914766497`}, {14., 13815.71536296363}, {15., 
+      13818.464474956718`}, {16., 13817.700046316975`}, {17., 
+      13818.58129707555}}]}}, {}, {}, {}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0., 13815.572066258035`},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& )}},
+  PlotRange->{{0., 17.}, {13815.71536296363, 13818.58129707555}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.05], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Print",
+ CellChangeTimes->{
+  3.830909777907118*^9},ExpressionUUID->"c511e529-e940-4556-9a9a-\
+69d92fbf4de8"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"Block", "[", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"MonteCarloSum", ",", 
+      RowBox[{"n", "=", 
+       RowBox[{"2", "*", 
+        RowBox[{"10", "^", "4"}]}]}], ",", 
+      RowBox[{"k", "=", 
+       RowBox[{"1.38", "*", 
+        RowBox[{"10", "^", 
+         RowBox[{"(", 
+          RowBox[{"-", "23"}], ")"}]}]}]}], ",", 
+      RowBox[{"T", "=", "800"}], ",", "P", ",", 
+      RowBox[{"q", "=", 
+       RowBox[{"1.6", "*", 
+        RowBox[{"10", "^", 
+         RowBox[{"(", 
+          RowBox[{"-", "19"}], ")"}]}]}]}], ",", 
+      RowBox[{"m", "=", 
+       RowBox[{"10", "^", 
+        RowBox[{"(", 
+         RowBox[{"-", "26"}], ")"}]}]}], ",", 
+      RowBox[{"h", "=", 
+       RowBox[{"6.63", "*", 
+        RowBox[{"10", "^", 
+         RowBox[{"(", 
+          RowBox[{"-", "34"}], ")"}]}]}]}], ",", 
+      RowBox[{"E0", "=", 
+       RowBox[{"10", "^", "15"}]}]}], "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"MonteCarloSum", "[", 
+       RowBox[{
+       "n_", ",", "P_", ",", "T_", ",", "q_", ",", "m_", ",", "h_", ",", 
+        "E0_"}], "]"}], ":=", 
+      RowBox[{"Block", "[", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"r", ",", "s", ",", "A", ",", "sum", ",", "sum1"}], "}"}], 
+        ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"sum", "=", "0"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"A", "=", 
+          RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"r", "=", "0"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"While", "[", "\[IndentingNewLine]", 
+          RowBox[{"True", ",", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"r", "=", 
+             RowBox[{"r", "+", "1"}]}], ";", "\[IndentingNewLine]", 
+            RowBox[{"s", "=", 
+             RowBox[{"RandomVariate", "[", 
+              RowBox[{"BinomialDistribution", "[", 
+               RowBox[{"n", ",", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"n", "/", "2"}], "-", "1"}], ")"}], "/", "n"}]}], 
+               "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"MemberQ", "[", 
+               RowBox[{"A", ",", "s"}], "]"}], ",", 
+              RowBox[{"Continue", "[", "]"}], ",", 
+              RowBox[{"AppendTo", "[", 
+               RowBox[{"A", ",", "s"}], "]"}]}], "]"}], ";", 
+            "\[IndentingNewLine]", 
+            RowBox[{"sum1", "=", "sum"}], ";", "\[IndentingNewLine]", 
+            RowBox[{"sum", "=", 
+             RowBox[{"sum", "+", 
+              RowBox[{
+               RowBox[{"Binomial", "[", 
+                RowBox[{"n", ",", "s"}], "]"}], "*", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"-", "1"}], ")"}], "^", "s"}], "*", 
+               RowBox[{"(", 
+                RowBox[{"k", " ", 
+                 RowBox[{
+                  RowBox[{"T", "/", "108"}], "/", "P"}], 
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"36", " ", 
+                    RowBox[{"HypergeometricPFQ", "[", 
+                    RowBox[{
+                    RowBox[{"{", "1", "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"1", "/", "3"}], ",", 
+                    RowBox[{"2", "/", "3"}]}], "}"}], ",", 
+                    RowBox[{
+                    RowBox[{"-", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"q", " ", "E0"}], ")"}], "^", "3"}]}], 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"s", "+", "n"}], ")"}], "^", "3"}], "/", "1728"}],
+                     "/", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"k", " ", "T"}], ")"}], "^", "2"}]}], "/", 
+                    "P"}]}]}], "]"}]}], "+", 
+                   RowBox[{"\[Pi]", " ", 
+                    RowBox[{"Sqrt", "[", 
+                    RowBox[{"k", " ", 
+                    RowBox[{"T", "/", "P"}]}], "]"}], 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"q", " ", "E0", " ", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"s", "+", "n"}], ")"}], "/", "k"}], "/", "T"}]}], 
+                    ")"}], "^", 
+                    RowBox[{"(", 
+                    RowBox[{"3", "/", "2"}], ")"}]}], 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"BesselJ", "[", 
+                    RowBox[{
+                    RowBox[{"1", "/", "3"}], ",", 
+                    RowBox[{
+                    RowBox[{"1", "/", "12"}], 
+                    RowBox[{"Sqrt", "[", 
+                    RowBox[{"k", " ", 
+                    RowBox[{
+                    RowBox[{"T", "/", "3"}], "/", "P"}]}], "]"}], 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"q", " ", "E0", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"s", "+", "n"}], ")"}], "/", "k"}], "/", "T"}]}], 
+                    ")"}], "^", 
+                    RowBox[{"(", 
+                    RowBox[{"3", "/", "2"}], ")"}]}]}]}], "]"}], "-", 
+                    RowBox[{"BesselJ", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "1"}], "/", "3"}], ",", 
+                    RowBox[{
+                    RowBox[{"1", "/", "12"}], 
+                    RowBox[{"Sqrt", "[", 
+                    RowBox[{"k", " ", 
+                    RowBox[{
+                    RowBox[{"T", "/", "3"}], "/", "P"}]}], "]"}], 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"q", " ", "E0", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"s", "+", "n"}], ")"}], "/", "k"}], "/", "T"}]}], 
+                    ")"}], "^", 
+                    RowBox[{"(", 
+                    RowBox[{"3", "/", "2"}], ")"}]}]}]}], "]"}]}], ")"}]}]}], 
+                  ")"}]}], ")"}]}]}]}], ";", "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{
+                RowBox[{"Abs", "[", 
+                 RowBox[{"sum1", "-", "sum"}], "]"}], "/", 
+                RowBox[{"Abs", "[", 
+                 RowBox[{"sum1", "+", "0.01"}], "]"}]}], "<", 
+               RowBox[{"10", "^", 
+                RowBox[{"(", 
+                 RowBox[{"-", "3"}], ")"}]}]}], ",", 
+              RowBox[{"Break", "[", "]"}]}], "]"}], ";"}]}], 
+          "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"Return", "[", "sum", "]"}], ";"}]}], "\[IndentingNewLine]", 
+       "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"ListLinePlot", "[", 
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{"Log", "[", 
+          RowBox[{"Abs", "[", 
+           RowBox[{"MonteCarloSum", "[", 
+            RowBox[{
+            "n", ",", "P", ",", "T", ",", "q", ",", "m", ",", "h", ",", 
+             "E0"}], "]"}], "]"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"P", ",", 
+           RowBox[{"10", "^", "5"}], ",", 
+           RowBox[{"10", "^", "6"}], ",", 
+           RowBox[{"0.9", "*", 
+            RowBox[{"10", "^", "5"}]}]}], "}"}]}], "]"}], "]"}], "//", 
+      "Print"}], ";"}]}], "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.830907101582582*^9, 3.830907146302339*^9}, {
+   3.8309071939276953`*^9, 3.830907244938188*^9}, {3.830907284036282*^9, 
+   3.8309072843735743`*^9}, {3.830907395049752*^9, 3.8309073958864937`*^9}, 
+   3.8309094680419903`*^9, {3.830909573158691*^9, 3.830909747775178*^9}, {
+   3.830909796371807*^9, 
+   3.8309098130143003`*^9}},ExpressionUUID->"4b702a22-8b13-41de-92af-\
+c29d398cf3f3"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, {}, 
+    {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.019444444444444445`],
+      AbsoluteThickness[1.6], 
+     LineBox[{{1., 13819.628661507342`}, {2., 13819.156846924086`}, {3., 
+      13819.952261203698`}, {4., 13818.779833325105`}, {5., 
+      13817.76351822147}, {6., 13818.406496775366`}, {7., 
+      13817.472746307218`}, {8., 13819.012171942835`}, {9., 
+      13816.937383346345`}, {10., 13817.438075095451`}, {11., 
+      13817.737101887555`}}]}}, {}, {}, {}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0., 13816.78663945348},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& )}},
+  PlotRange->{{0., 11.}, {13816.937383346345`, 13819.952261203698`}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.05], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Print",
+ CellChangeTimes->{
+  3.830909832095563*^9},ExpressionUUID->"d43effc7-b467-4ac0-b7b0-\
+88ae9fdd07b3"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"Block", "[", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"MonteCarloSum", ",", 
+      RowBox[{"n", "=", 
+       RowBox[{"2", "*", 
+        RowBox[{"10", "^", "4"}]}]}], ",", 
+      RowBox[{"k", "=", 
+       RowBox[{"1.38", "*", 
+        RowBox[{"10", "^", 
+         RowBox[{"(", 
+          RowBox[{"-", "23"}], ")"}]}]}]}], ",", 
+      RowBox[{"T", "=", "800"}], ",", "P", ",", 
+      RowBox[{"q", "=", 
+       RowBox[{"1.6", "*", 
+        RowBox[{"10", "^", 
+         RowBox[{"(", 
+          RowBox[{"-", "19"}], ")"}]}]}]}], ",", 
+      RowBox[{"m", "=", 
+       RowBox[{"10", "^", 
+        RowBox[{"(", 
+         RowBox[{"-", "26"}], ")"}]}]}], ",", 
+      RowBox[{"h", "=", 
+       RowBox[{"6.63", "*", 
+        RowBox[{"10", "^", 
+         RowBox[{"(", 
+          RowBox[{"-", "34"}], ")"}]}]}]}], ",", 
+      RowBox[{"E0", "=", 
+       RowBox[{"10", "^", "15"}]}]}], "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"MonteCarloSum", "[", 
+       RowBox[{
+       "n_", ",", "P_", ",", "T_", ",", "q_", ",", "m_", ",", "h_", ",", 
+        "E0_"}], "]"}], ":=", 
+      RowBox[{"Block", "[", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"r", ",", "s", ",", "A", ",", "sum", ",", "sum1"}], "}"}], 
+        ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"sum", "=", "0"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"A", "=", 
+          RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"r", "=", "0"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"While", "[", "\[IndentingNewLine]", 
+          RowBox[{"True", ",", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"r", "=", 
+             RowBox[{"r", "+", "1"}]}], ";", "\[IndentingNewLine]", 
+            RowBox[{"s", "=", 
+             RowBox[{"RandomVariate", "[", 
+              RowBox[{"BinomialDistribution", "[", 
+               RowBox[{"n", ",", 
+                RowBox[{
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"n", "/", "2"}], "-", "1"}], ")"}], "/", "n"}]}], 
+               "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"MemberQ", "[", 
+               RowBox[{"A", ",", "s"}], "]"}], ",", 
+              RowBox[{"Continue", "[", "]"}], ",", 
+              RowBox[{"AppendTo", "[", 
+               RowBox[{"A", ",", "s"}], "]"}]}], "]"}], ";", 
+            "\[IndentingNewLine]", 
+            RowBox[{"sum1", "=", "sum"}], ";", "\[IndentingNewLine]", 
+            RowBox[{"sum", "=", 
+             RowBox[{"sum", "+", 
+              RowBox[{
+               RowBox[{"Binomial", "[", 
+                RowBox[{"n", ",", "s"}], "]"}], "*", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"-", "1"}], ")"}], "^", "s"}], "*", 
+               RowBox[{"(", 
+                RowBox[{"k", " ", 
+                 RowBox[{
+                  RowBox[{"T", "/", "108"}], "/", "P"}], 
+                 RowBox[{"(", 
+                  RowBox[{
+                   RowBox[{"36", " ", 
+                    RowBox[{"HypergeometricPFQ", "[", 
+                    RowBox[{
+                    RowBox[{"{", "1", "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"1", "/", "3"}], ",", 
+                    RowBox[{"2", "/", "3"}]}], "}"}], ",", 
+                    RowBox[{
+                    RowBox[{"-", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"q", " ", "E0"}], ")"}], "^", "3"}]}], 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"s", "+", "n"}], ")"}], "^", "3"}], "/", "1728"}],
+                     "/", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"k", " ", "T"}], ")"}], "^", "2"}]}], "/", 
+                    "P"}]}]}], "]"}]}], "+", 
+                   RowBox[{"\[Pi]", " ", 
+                    RowBox[{"Sqrt", "[", 
+                    RowBox[{"k", " ", 
+                    RowBox[{"T", "/", "P"}]}], "]"}], 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"q", " ", "E0", " ", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"s", "+", "n"}], ")"}], "/", "k"}], "/", "T"}]}], 
+                    ")"}], "^", 
+                    RowBox[{"(", 
+                    RowBox[{"3", "/", "2"}], ")"}]}], 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"BesselJ", "[", 
+                    RowBox[{
+                    RowBox[{"1", "/", "3"}], ",", 
+                    RowBox[{
+                    RowBox[{"1", "/", "12"}], 
+                    RowBox[{"Sqrt", "[", 
+                    RowBox[{"k", " ", 
+                    RowBox[{
+                    RowBox[{"T", "/", "3"}], "/", "P"}]}], "]"}], 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"q", " ", "E0", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"s", "+", "n"}], ")"}], "/", "k"}], "/", "T"}]}], 
+                    ")"}], "^", 
+                    RowBox[{"(", 
+                    RowBox[{"3", "/", "2"}], ")"}]}]}]}], "]"}], "-", 
+                    RowBox[{"BesselJ", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "1"}], "/", "3"}], ",", 
+                    RowBox[{
+                    RowBox[{"1", "/", "12"}], 
+                    RowBox[{"Sqrt", "[", 
+                    RowBox[{"k", " ", 
+                    RowBox[{
+                    RowBox[{"T", "/", "3"}], "/", "P"}]}], "]"}], 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"q", " ", "E0", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"s", "+", "n"}], ")"}], "/", "k"}], "/", "T"}]}], 
+                    ")"}], "^", 
+                    RowBox[{"(", 
+                    RowBox[{"3", "/", "2"}], ")"}]}]}]}], "]"}]}], ")"}]}]}], 
+                  ")"}]}], ")"}]}]}]}], ";", "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{
+                RowBox[{"Abs", "[", 
+                 RowBox[{"sum1", "-", "sum"}], "]"}], "/", 
+                RowBox[{"Abs", "[", 
+                 RowBox[{"sum1", "+", "0.01"}], "]"}]}], "<", 
+               RowBox[{"10", "^", 
+                RowBox[{"(", 
+                 RowBox[{"-", "3"}], ")"}]}]}], ",", 
+              RowBox[{"Break", "[", "]"}]}], "]"}], ";"}]}], 
+          "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"Return", "[", "sum", "]"}], ";"}]}], "\[IndentingNewLine]", 
+       "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"ListLinePlot", "[", 
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{"Log", "[", 
+          RowBox[{"Abs", "[", 
+           RowBox[{"MonteCarloSum", "[", 
+            RowBox[{
+            "n", ",", "P", ",", "T", ",", "q", ",", "m", ",", "h", ",", 
+             "E0"}], "]"}], "]"}], "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"P", ",", 
+           RowBox[{"10", "^", "5"}], ",", 
+           RowBox[{"10", "^", "6"}], ",", 
+           RowBox[{"0.9", "*", 
+            RowBox[{"10", "^", "5"}]}]}], "}"}]}], "]"}], "]"}], "//", 
+      "Print"}], ";"}]}], "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.830907101582582*^9, 3.830907146302339*^9}, {
+   3.8309071939276953`*^9, 3.830907244938188*^9}, {3.830907284036282*^9, 
+   3.8309072843735743`*^9}, {3.830907395049752*^9, 3.8309073958864937`*^9}, 
+   3.8309094680419903`*^9, {3.830909573158691*^9, 3.830909747775178*^9}, {
+   3.830909796371807*^9, 
+   3.8309098130143003`*^9}},ExpressionUUID->"f83d1a59-64f2-49e9-aef5-\
+d7d5375c89ca"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, {}, 
+    {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.019444444444444445`],
+      AbsoluteThickness[1.6], 
+     LineBox[{{1., 13820.344896966059`}, {2., 13819.602042796187`}, {3., 
+      13819.879874324999`}, {4., 13818.63823409447}, {5., 
+      13819.64512745087}, {6., 13818.614929292033`}, {7., 
+      13817.780611777836`}, {8., 13818.926067989902`}, {9., 
+      13818.015449563094`}, {10., 13817.233043146412`}, {11., 
+      13817.942921341957`}}]}}, {}, {}, {}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0., 13817.07745045543},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& )}},
+  PlotRange->{{0., 11.}, {13817.233043146412`, 13820.344896966059`}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.05], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Print",
+ CellChangeTimes->{
+  3.830909869624596*^9},ExpressionUUID->"48404cb8-ebd6-4cb3-98a8-\
+f0e23e6b5516"]
+}, Open  ]]
+},
+WindowSize->{Full, Full},
+WindowMargins->{{172, Automatic}, {Automatic, 50}},
+FrontEndVersion->"11.2 for Mac OS X x86 (32-bit, 64-bit Kernel) (September \
+10, 2017)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 313, 7, 30, "Input",ExpressionUUID->"bfce6044-8834-4e0a-a5ac-65839cd61055"],
+Cell[CellGroupData[{
+Cell[896, 31, 8077, 200, 535, "Input",ExpressionUUID->"366412c7-a0c7-4c5c-8102-4509d950cd0a"],
+Cell[8976, 233, 1769, 44, 225, "Print",ExpressionUUID->"c511e529-e940-4556-9a9a-69d92fbf4de8"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10782, 282, 8196, 202, 535, "Input",ExpressionUUID->"4b702a22-8b13-41de-92af-c29d398cf3f3"],
+Cell[18981, 486, 1591, 41, 225, "Print",ExpressionUUID->"d43effc7-b467-4ac0-b7b0-88ae9fdd07b3"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20609, 532, 8196, 202, 535, "Input",ExpressionUUID->"f83d1a59-64f2-49e9-aef5-d7d5375c89ca"],
+Cell[28808, 736, 1589, 41, 230, "Print",ExpressionUUID->"48404cb8-ebd6-4cb3-98a8-f0e23e6b5516"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
