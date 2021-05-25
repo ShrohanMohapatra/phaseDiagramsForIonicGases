@@ -13,7 +13,7 @@ University of Massachusetts Amherst}
 \section{Gibbs ensemble of ions in different phases}
 In this article, one explains the statistical mechanics of the ions in the isothermal-isobaric ensemble, also known as the Gibbs ensemble, well described in \cite{ref1, ref2}. This ensemble of particles is in a container which is maintained at constant temperature $T$ and pressure $P$, and has fixed number of particles $N$. The partition function for the Gibbs ensemble can be computed from that of the canonical ensemble as follows \cite{ref1, ref2},
 \begin{equation}
-Z(N, P, T) = \int_{V=0}^{V=\infty} dV \frac{P dV}{k_B T} e^{-\frac{P V}{k_B T}} Z_{c}(N, V, T)
+Z(N, P, T) = \int_{V=0}^{V=\infty} \frac{P dV}{k_B T} e^{-\frac{P V}{k_B T}} Z_{c}(N, V, T)
 \end{equation}
 where $k_B$ is the Boltzmann constant and $Z_c$ the partition function for the canonical ensemble, which in turn can be computed from the Hamiltonian $H(\textbf{r},\textbf{p})$ in conservative systems,
 \begin{equation}
@@ -43,8 +43,19 @@ Z_c(N, V, T) = \frac{N^{\frac{2}{3}}}{\Gamma(\frac{N}{2}+1)^2} \sum_{n=0}^{\lflo
 \begin{flalign*}
 \implies Z_c(N, V, T) = \frac{N^{\frac{2}{3}}}{\Gamma(\frac{N}{2}+1)^2} \bigg( \frac{cosh(\frac{q E_0 a}{2 k_B T}(2 N^{\frac{1}{3}}-1))-cosh(\frac{q E_0 a}{2 k_B T})}{sinh(\frac{q E_0 a}{2 k_B T})} \bigg)
 \end{flalign*}
-As such, there is no explicit dependence of the canonical partition function on the volume; the implicit relationship between $V$ and $N$ is dictated by the symmetric geometry, $V = N a^3$.
+As such, there is no explicit dependence of the canonical partition function on the volume; the implicit relationship between $V$ and $N$ is dictated by the symmetric geometry, $V = N a^3$. This simplifies the calculation of the Gibbs partition function,
+\begin{flalign*}
+Z(N, P, T) = \int_{V=0}^{V=\infty} \frac{P dV}{k_B T} e^{-\frac{P V}{k_B T}} Z_{c}(N, V, T)
+\end{flalign*}
+\begin{flalign*}
+\rightarrow Z(N, P, T) = \int_{V=0}^{V=\infty} \frac{P dV}{k_B T} e^{-\frac{P V}{k_B T}} \frac{N^{\frac{2}{3}}}{\Gamma(\frac{N}{2}+1)^2} \bigg( \frac{cosh(\frac{q E_0 a}{2 k_B T}(2 N^{\frac{1}{3}}-1))-cosh(\frac{q E_0 a}{2 k_B T})}{sinh(\frac{q E_0 a}{2 k_B T})} \bigg)
+\end{flalign*}
+\begin{flalign*}
+\rightarrow Z(N, P, T) = \frac{N^{\frac{2}{3}}}{\Gamma(\frac{N}{2}+1)^2} \bigg( \frac{cosh(\frac{q E_0 a}{2 k_B T}(2 N^{\frac{1}{3}}-1))-cosh(\frac{q E_0 a}{2 k_B T})}{sinh(\frac{q E_0 a}{2 k_B T})} \bigg)
+\end{flalign*}
+The independence of the Gibbs' partition function of the pressure is reminiscent of the solid phase is resistant to external pressure. The usual values of this function has enormous exponents so the log-log plots of the same have been plotted and explored in \cite{githubrepo} and is highly recommended for the reader to explore the symbolic computation. As one can see, the computation of the partition function is fairly trivial in the solid phase, which becomes a bit more involved in the case of fluid phases as is described in the next subsection.
 \subsection{Partition function for the molten salts and salt vapours}
+As mentioned above, the Hamiltonian of the system will not be including the electrostatic forces between the ions in the strong electric field regime.
 \section{Monte Carlo methods to compute the partition function}
 \section{Conclusion}
 \begin{thebibliography}{999}
