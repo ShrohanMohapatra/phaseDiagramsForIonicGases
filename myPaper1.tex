@@ -1,0 +1,62 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,enumerate}
+\title{Analytical tractability and computability of the phase diagram of ionic compounds in strong electric fields}
+\author{Shrohan Mohapatra\\
+Department of Physics\\
+University of Massachusetts Amherst}
+\date{\today}
+\begin{document}
+\maketitle
+\begin{abstract}
+\end{abstract}
+\section{Introduction}
+\section{Gibbs ensemble of ions in different phases}
+In this article, one explains the statistical mechanics of the ions in the isothermal-isobaric ensemble, also known as the Gibbs ensemble, well described in \cite{ref1, ref2}. This ensemble of particles is in a container which is maintained at constant temperature $T$ and pressure $P$, and has fixed number of particles $N$. The partition function for the Gibbs ensemble can be computed from that of the canonical ensemble as follows \cite{ref1, ref2},
+\begin{equation}
+Z(N, P, T) = \int_{V=0}^{V=\infty} dV \frac{P dV}{k_B T} e^{-\frac{P V}{k_B T}} Z_{c}(N, V, T)
+\end{equation}
+where $k_B$ is the Boltzmann constant and $Z_c$ the partition function for the canonical ensemble, which in turn can be computed from the Hamiltonian $H(\textbf{r},\textbf{p})$ in conservative systems,
+\begin{equation}
+Z_c(N, V, T) = \frac{1}{h^{3 N} C}\int d^{3 N}\textbf{r} \int d^{3 N}\textbf{p}\quad exp\bigg(-\frac{H(\textbf{r},\textbf{p})}{k_B T}\bigg)
+\end{equation}
+where $h$ is the Planck's constant introduced to ensure non-dimensionalisation of the partition function and $C$ is the over-counting factor. Note that the integration of the position variables happen over the 'available volume' to the particles from the total volume $V$ of the system. After having computed the partition function, one can extract the complete thermodynamics from the Gibbs' free energy,
+\begin{equation}
+G(N, P, T) = - k_B T log(Z(N, P, T))
+\end{equation}
+and the Helmholtz free energy $F = G - PV$. In the subsequent sections, we will consider the different assumptions for the Hamiltonian of the ionic compound in its different phases in the presence of strong background electric field and compute the Gibbs partition function from this to prove its analytical tractability, i.e. the existence of a closed-form expression in terms of all the variables in our parameter space which eradicates the necessity to compute the partition function by numerical integration techniques such as Monte Carlo stochastic sampling.
+\subsection{Solid state thermodynamics}
+In this subsection and the next, we assume for simplicity an electric field $E_0$ in the x-direction of the presumed anisotropy (isotropy for the fluid phases) of the arrangement of ions (prove the choice of the electric field here). About the arrangement of ions, the case of a solid salt, with simple cubic unit cell propagating throughout its crystallography, is considered, for example caesium chloride (CsCl). The radius of caesium ions is 174 pm and those of the chloride ions is 181 pm. One can easily show that the lattice constant computed from the radii and the geometry is $a$ = 419 pm. For generalisation to similar binary ionic compounds with the anions and cations of same magnitude of charge, I would assume the \textit{charge} to be $q$ (for instance, in the case of CsCl, $q = 1.6 \times 10^{-19}$ C).
+\\ \\
+Before proceeding further, it is important to enunciate on the assumption of the \textit{strong electric field}. Throughout this article, until and unless stated, the underlying assumption is that the electric field $E_0$ is way larger than the characteristic electrostatic forces of the ions, i.e.
+\begin{equation}
+E_0 >> \frac{q}{4\pi \epsilon_0 a^2}
+\end{equation}
+where $\epsilon_0 = 8.85 \times 10^{-12}$ $F m^{-1}$ is the vacuum permittivity. Plugging in the numbers one obtains $\frac{q}{4\pi \epsilon_0 a^2} = 8.31 \times 10^{8}$ $N C^{-1}$. The software which was written in \cite{githubrepo} to simulate and calculate the models discussed now, or otherwise, considered electric fields of the order of $10^{15}$-$10^{20}$ $N C^{-1}$. In this regime, we will \textit{not be considering the influence of Coulombic forces} in the Hamiltonian in this case (or even in the fluid case). Also, I am ignoring the oscillatory modes of the crystal lattice therewith.
+\\ \\
+The Hamiltonian of this system is fairly simple; $H_{-} = \frac{-q E_0 n a}{k_B T}$ for the negative ions and $H_{+} = \frac{q E_0 n a}{k_B T}$ for the positive ions, $0 \le n \le \lfloor N^{\frac{1}{3}} \rfloor -1$. Thus the canonical partition function (including the correction factors)
+\begin{equation}
+Z_c(N, V, T) = \frac{N^{\frac{2}{3}}}{\Gamma(\frac{N}{2}+1)^2} \sum_{n=0}^{\lfloor N^{\frac{1}{3}} \rfloor -1} e^{-\frac{q E_0 n a}{k_B T}} + e^{\frac{q E_0 n a}{k_B T}}
+\end{equation}
+\begin{flalign*}
+\implies Z_c(N, V, T) = \frac{2 N^{\frac{2}{3}}}{\Gamma(\frac{N}{2}+1)^2} \sum_{n=0}^{\lfloor N^{\frac{1}{3}} \rfloor -1} sinh\bigg(\frac{q E_0 n a}{k_B T}\bigg)
+\end{flalign*}
+\begin{flalign*}
+\implies Z_c(N, V, T) = \frac{N^{\frac{2}{3}}}{\Gamma(\frac{N}{2}+1)^2} \bigg( \frac{cosh(\frac{q E_0 a}{2 k_B T}(2 N^{\frac{1}{3}}-1))-cosh(\frac{q E_0 a}{2 k_B T})}{sinh(\frac{q E_0 a}{2 k_B T})} \bigg)
+\end{flalign*}
+As such, there is no explicit dependence of the canonical partition function on the volume; the implicit relationship between $V$ and $N$ is dictated by the symmetric geometry, $V = N a^3$.
+\subsection{Partition function for the molten salts and salt vapours}
+\section{Monte Carlo methods to compute the partition function}
+\section{Conclusion}
+\begin{thebibliography}{999}
+\bibitem{electricFieldsAndBoilingPoints}
+V. Ramakrishna, P. K. C. Pillai, P. K. Katti, "Effect of Electric fields on the Boiling Points", Nature 198, 181 (1963)
+\bibitem{githubrepo}
+S. Mohapatra, phaseDiagramsForIonicGases (2020), GitHub repository, https://github.com/ShrohanMohapatra/phaseDiagramsForIonicGases
+\bibitem{ionicliquids}
+A. Lewandowski, A. Swiderska-Mocek, "Phase Diagram for Ionic Liquids", Zeitschrift fur Physikalische Chemie, 223(12):1427-1435, (2010)
+\bibitem{ref1}
+Hill, Terrence (1987), "Statistical Mechanics: Principles and Selected Applications", New York: Dover
+\bibitem{ref2}
+Kardar, Mehran (2007), "Statistical Physics of Particles", New York: Cambridge University Press
+\end{thebibliography}
+\end{document}
