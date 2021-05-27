@@ -149,7 +149,14 @@ Now the above integral diverges, as $0\le k\le \frac{N}{2}$, so we place a cutof
 I_2 = \sum_{k=0}^{\frac{N}{2}} \binom{\frac{N}{2}}{k} (-1)^k \quad \int_{L = 0}^{L = L_c} dL \quad L^{3N+2}  e^{\frac{(2N-k) q E_0 L}{2 k_B T}}
 \end{flalign*}
 \begin{flalign*}
-I_2 = \sum_{k=0}^{\frac{N}{2}} \binom{\frac{N}{2}}{k} (-1)^k \quad \int_{L = 0}^{L = L_c} dL \quad L^{3N+2}  e^{\frac{(2N-k) q E_0 L}{2 k_B T}}
+\rightarrow I_2 = \sum_{k=0}^{\frac{N}{2}} \binom{\frac{N}{2}}{k} (-1)^{n+k} \quad \bigg(\frac{q E_0 (2n-k)}{2 k_B T}\bigg)^{-3(n+1)} \bigg(\Gamma\bigg(3n+3,\frac{-q E_0 L_c(2n-k)}{2 k_B T}\bigg)-\Gamma(3n+3)\bigg)
+\end{flalign*}
+Thus the liquid state Gibbs' partition function is given by,
+\begin{flalign*}
+Z(N, P, T) = \frac{3}{\Gamma(\frac{N}{2}+1)^2} \bigg(\frac{k_B T}{q E_0}\bigg)^N \bigg(\frac{2 \pi m k_B T}{h^2}\bigg)^{\frac{3N}{2}} \sum_{k=0}^{\frac{N}{2}-1} \binom{\frac{N}{2}}{k} \bigg[ (-1)^k \bigg(\frac{(N+k)q E_0}{k_B T}\bigg)^{-3(N+1)}
+\end{flalign*}
+\begin{flalign*}
+ \Gamma(3 N+3) + (-1)^{k+n} \bigg(\frac{(2N-k)q E_0}{k_B T}\bigg)^{-3(N+1)} \bigg\{ \Gamma\bigg(3N+3,\frac{-q E_0 L_c (2N-k)}{2 k_B T}\bigg) - \Gamma(3N+3) \bigg\} \bigg]
 \end{flalign*}
 \section{Monte Carlo methods to compute the partition function and phase transitions}
 \section{Conclusion}
