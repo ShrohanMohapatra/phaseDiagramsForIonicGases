@@ -1,5 +1,5 @@
 \documentclass{article}
-\usepackage{amsmath,amssymb,enumerate}
+\usepackage{amsmath,amssymb,enumerate,graphicx}
 \title{Analytical tractability and computability of the phase diagram of ionic compounds in strong electric fields}
 \author{Shrohan Mohapatra\\
 Department of Physics\\
@@ -52,11 +52,106 @@ Z(N, P, T) = \int_{V=0}^{V=\infty} \frac{P dV}{k_B T} e^{-\frac{P V}{k_B T}} Z_{
 \end{flalign*}
 \begin{flalign*}
 \rightarrow Z(N, P, T) = \frac{N^{\frac{2}{3}}}{\Gamma(\frac{N}{2}+1)^2} \bigg( \frac{cosh(\frac{q E_0 a}{2 k_B T}(2 N^{\frac{1}{3}}-1))-cosh(\frac{q E_0 a}{2 k_B T})}{sinh(\frac{q E_0 a}{2 k_B T})} \bigg)
-\end{flalign*}
-The independence of the Gibbs' partition function of the pressure is reminiscent of the solid phase is resistant to external pressure. The usual values of this function has enormous exponents so the log-log plots of the same have been plotted and explored in \cite{githubrepo} and is highly recommended for the reader to explore the symbolic computation. As one can see, the computation of the partition function is fairly trivial in the solid phase, which becomes a bit more involved in the case of fluid phases as is described in the next subsection.
+\end{flalign*};
+The independence of the Gibbs' partition function of the pressure is reminiscent of the solid phase is resistant to external pressure. The usual values of this function has enormous exponents so the log-log plots of the same have been plotted (an example being the figure \ref{fig1}) and explored in \cite{githubrepo} and is highly recommended for the reader to explore the symbolic computation. As one can see, the computation of the partition function is fairly trivial in the solid phase, which becomes a bit more involved in the case of fluid phases as is described in the next subsection.
+
+\begin{figure}
+\includegraphics{gibbsSolidState.pdf}
+\caption{\label{fig1} The plot of the non-dimensionalized Gibbs' free energy $\frac{-G}{k_B T}$ against the temperature $T$. Here $N=5\times 10^4$, $q=1.6\times10^{-19}$ C, $E_0 = 10^{15}$ $N C^{-1}$ and $a = 419$ pm}
+\end{figure}
 \subsection{Partition function for the molten salts and salt vapours}
-As mentioned above, the Hamiltonian of the system will not be including the electrostatic forces between the ions in the strong electric field regime.
-\section{Monte Carlo methods to compute the partition function}
+As mentioned above, the Hamiltonian of the system will not be including the electrostatic forces between the ions in the strong electric field regime. The energy for the system (i.e. the Hamiltonian) of the molten salts will be described with the following physical assumption; since there is a translational degree of freedom with a restriction of viscous forces against the ions, the anions rearrange themselves away from the electric field $E_0$, i.e. in the regime $0 \le x \le \frac{L}{2}$ and the cations rearrange themselves from the electric field, i.e. in the regime $\frac{L}{2} \le x \le L$. The Hamiltonian for the molten salts is given as follows:
+\begin{equation}
+H = \frac{\textbf{p}\cdot \textbf{p}}{2 m} - q E_0 x, \forall 0 \le x \le \frac{L}{2}
+\end{equation}
+and 
+\begin{equation}
+H = \frac{\textbf{p}\cdot \textbf{p}}{2 m} + q E_0 x, \forall \frac{L}{2} \le x \le L
+\end{equation}
+where $L = V^{\frac{1}{3}}$. The canonical partition function $Z_{c,-}$ for one single anion,
+\begin{flalign*}
+Z_{c,-} = \frac{1}{h^3} \int_{p_x = -\infty}^{\infty}\int_{p_y = -\infty}^{\infty}\int_{p_z = -\infty}^{\infty} \int_{V} dp_x dp_y dp_z d^3 \textbf{r}\quad e^{-\frac{H(\textbf{r},\textbf{p})}{k_B T}}
+\end{flalign*}
+\begin{flalign*}
+= \frac{1}{h^3} \bigg(\int_{p = -\infty}^{p=\infty} dp\quad e^{-\frac{p^2}{2 m k_B T}}\bigg)^3 L^2 \int_{x=0}^{x=\frac{L}{2}} dx \quad e^{\frac{q E_0 x}{k_B T}}
+\end{flalign*}
+\begin{flalign*}
+\rightarrow Z_{c,-} = \frac{k_B T L^2}{q E_0} \bigg(\frac{2 \pi m k_B T}{h^2}\bigg)^\frac{3}{2} \bigg(e^{\frac{q E_0 L}{2 k_B T}}-1\bigg)
+\end{flalign*}
+Similarly for the canonical partition function $Z_{c,+}$ for one single cation,
+\begin{flalign*}
+Z_{c,+} = \frac{1}{h^3} \int_{p_x = -\infty}^{\infty}\int_{p_y = -\infty}^{\infty}\int_{p_z = -\infty}^{\infty} \int_{V} dp_x dp_y dp_z d^3 \textbf{r}\quad e^{-\frac{H(\textbf{r},\textbf{p})}{k_B T}}
+\end{flalign*}
+\begin{flalign*}
+= \frac{1}{h^3} \bigg(\int_{p = -\infty}^{p=\infty} dp\quad e^{-\frac{p^2}{2 m k_B T}}\bigg)^3 L^2 \int_{x=\frac{L}{2}}^{x=L} dx \quad e^{\frac{-q E_0 x}{k_B T}}
+\end{flalign*}
+\begin{flalign*}
+\rightarrow Z_{c,+} = \frac{k_B T L^2}{q E_0} \bigg(\frac{2 \pi m k_B T}{h^2}\bigg)^\frac{3}{2} \bigg(e^{\frac{-q E_0 L}{2 k_B T}}-e^{\frac{-q E_0 L}{k_B T}}\bigg)
+\end{flalign*}
+From the above simple canonical partition functions, one can extend these to compute the complete canonical partition function.
+\begin{flalign*}
+Z_c(N, V, T) = (Z_{c,+})^{\frac{N}{2}} + (Z_{c,-})^{\frac{N}{2}}
+\end{flalign*}
+\begin{flalign*}
+= \bigg(\frac{k_B T L^2}{q E_0}\bigg)^{\frac{N}{2}} \bigg(\frac{2 \pi m k_B T}{h^2}\bigg)^\frac{3N}{2} \bigg(\bigg(e^{\frac{-q E_0 L}{2 k_B T}}-e^{\frac{-q E_0 L}{k_B T}}\bigg)^{\frac{N}{2}}+\bigg(e^{\frac{q E_0 L}{2 k_B T}}-1\bigg)^{\frac{N}{2}}\bigg)
+\end{flalign*}
+Finally I will take into account the over-counting factor $\bigg(\frac{N}{2}\bigg)!\bigg(\frac{N}{2}\bigg)! = \Gamma(\frac{N}{2}+1)^2$.
+\begin{flalign*}
+Z_c(N, V, T) = \frac{V^N}{\Gamma(\frac{N}{2}+1)^2} \bigg(\frac{k_B T}{q E_0}\bigg)^{\frac{N}{2}} \bigg(\frac{2 \pi m k_B T}{h^2}\bigg)^\frac{3N}{2} \bigg(\bigg(e^{\frac{-q E_0 L}{2 k_B T}}-e^{\frac{-q E_0 L}{k_B T}}\bigg)^{\frac{N}{2}}+\bigg(e^{\frac{q E_0 L}{2 k_B T}}-1\bigg)^{\frac{N}{2}}\bigg)
+\end{flalign*}
+\begin{flalign*}
+Z_c(N, L, T) = \frac{L^{3N}}{\Gamma(\frac{N}{2}+1)^2} \bigg(\frac{k_B T}{q E_0}\bigg)^{\frac{N}{2}} \bigg(\frac{2 \pi m k_B T}{h^2}\bigg)^\frac{3N}{2} \bigg(\bigg(e^{\frac{-q E_0 L}{2 k_B T}}-e^{\frac{-q E_0 L}{k_B T}}\bigg)^{\frac{N}{2}}+\bigg(e^{\frac{q E_0 L}{2 k_B T}}-1\bigg)^{\frac{N}{2}}\bigg)
+\end{flalign*}
+We come back to the definition of the Gibbs' partition function $Z(N, P, T) = \int dV \quad Z_c(N, V, T) e^{-\frac{P V}{k_B T}}$. I think it is convenient to resort to the reminiscent algebraic transformation $V = L^3 \rightarrow dV = 3 L^2 dL$. Therefore the Gibbs' partition function for the molten salt can be calculated as,
+\begin{flalign*}
+Z(N, P, T) = \int_{L = 0}^{L = \infty} dL \quad \frac{3 L^{3N+2}}{\Gamma(\frac{N}{2}+1)^2} \bigg(\frac{k_B T}{q E_0}\bigg)^{\frac{N}{2}}
+\end{flalign*}
+\begin{flalign*}
+\bigg(\frac{2 \pi m k_B T}{h^2}\bigg)^\frac{3N}{2} \bigg(\bigg(e^{\frac{-q E_0 L}{2 k_B T}}-e^{\frac{-q E_0 L}{k_B T}}\bigg)^{\frac{N}{2}}+\bigg(e^{\frac{q E_0 L}{2 k_B T}}-1\bigg)^{\frac{N}{2}}\bigg)
+\end{flalign*}
+The partition function linearly depends on the integrals,
+\begin{flalign*}
+I_1 = \int_{L = 0}^{L = \infty} dL \quad L^{3N+2} \bigg(e^{\frac{-q E_0 L}{2 k_B T}}-e^{\frac{-q E_0 L}{k_B T}}\bigg)^{\frac{N}{2}} = \int_{L = 0}^{L = \infty} dL \quad L^{3N+2} e^{\frac{-N q E_0 L}{k_B T}} \bigg(1-e^{\frac{-q E_0 L}{k_B T}}\bigg)^{\frac{N}{2}}
+\end{flalign*}
+\begin{flalign*}
+I_2 = \int_{L = 0}^{L = \infty} dL \quad L^{3N+2} \bigg(e^{\frac{q E_0 L}{2 k_B T}}-1\bigg)^{\frac{N}{2}} = \int_{L = 0}^{L = \infty} dL \quad L^{3N+2} e^{\frac{N q E_0 L}{k_B T}} \bigg(1-e^{\frac{-q E_0 L}{2 k_B T}}\bigg)^{\frac{N}{2}}
+\end{flalign*}
+The two integrals look similar and can be computed by similar methods (as is explained a little further) but cannot be directly related by trivial transformation of the variables. Both of them are otherwise intractable at this stage, which could be proven by Liouville's theorem \cite{githubrepo, compintegral, mathematica}. But one can simplify one step further from here using binomial theorem.
+\begin{flalign*}
+I_1 = \int_{L = 0}^{L = \infty} dL \quad L^{3N+2} \bigg(e^{\frac{-q E_0 L}{2 k_B T}}-e^{\frac{-q E_0 L}{k_B T}}\bigg)^{\frac{N}{2}} = \int_{L = 0}^{L = \infty} dL \quad L^{3N+2} e^{\frac{-N q E_0 L}{k_B T}} \bigg(1-e^{\frac{-q E_0 L}{k_B T}}\bigg)^{\frac{N}{2}}
+\end{flalign*}
+\begin{flalign*}
+= \int_{L = 0}^{L = \infty} dL \quad L^{3N+2} e^{\frac{-N q E_0 L}{k_B T}} \sum_{k=0}^{\frac{N}{2}} \binom{\frac{N}{2}}{k} (-1)^k e^{\frac{-k q E_0 L}{k_B T}}
+\end{flalign*}
+\begin{flalign*}
+\rightarrow I_1 = \sum_{k=0}^{\frac{N}{2}} \binom{\frac{N}{2}}{k} (-1)^k \quad \int_{L = 0}^{L = \infty} dL \quad L^{3N+2}  e^{\frac{-(N+k) q E_0 L}{k_B T}}
+\end{flalign*}
+Now the simplification of the integral \cite{githubrepo} leads to,
+\begin{flalign*}
+\int_{L = 0}^{L = \infty} dL \quad L^{3N+2}  e^{\frac{-(N+k) q E_0 L}{k_B T}} = \bigg(\frac{(N+k)q E_0}{k_B T}\bigg)^{-3(N+1)} \Gamma(3N+3)
+\end{flalign*}
+Thus,
+\begin{flalign*}
+I_1 = \sum_{k=0}^{\frac{N}{2}} \binom{\frac{N}{2}}{k} (-1)^k \bigg(\frac{(N+k)q E_0}{k_B T}\bigg)^{-3(N+1)} \Gamma(3N+3)
+\end{flalign*}
+Similarly, I can compute the other integral to be the following.
+\begin{flalign*}
+I_2 = \int_{L = 0}^{L = \infty} dL \quad L^{3N+2} \bigg(e^{\frac{q E_0 L}{2 k_B T}}-1\bigg)^{\frac{N}{2}} = \int_{L = 0}^{L = \infty} dL \quad L^{3N+2} e^{\frac{N q E_0 L}{k_B T}} \bigg(1-e^{\frac{-q E_0 L}{2 k_B T}}\bigg)^{\frac{N}{2}}
+\end{flalign*}
+\begin{flalign*}
+= \int_{L = 0}^{L = \infty} dL \quad L^{3N+2} e^{\frac{N q E_0 L}{k_B T}} \sum_{k=0}^{\frac{N}{2}} \binom{\frac{N}{2}}{k} (-1)^k e^{\frac{-k q E_0 L}{2 k_B T}}
+\end{flalign*}
+\begin{flalign*}
+\rightarrow I_2 = \sum_{k=0}^{\frac{N}{2}} \binom{\frac{N}{2}}{k} (-1)^k \quad \int_{L = 0}^{L = \infty} dL \quad L^{3N+2}  e^{\frac{(2N-k) q E_0 L}{2 k_B T}}
+\end{flalign*}
+Now the above integral diverges, as $0\le k\le \frac{N}{2}$, so we place a cutoff volume $L_c = V_c^{\frac{1}{3}}$,
+\begin{flalign*}
+I_2 = \sum_{k=0}^{\frac{N}{2}} \binom{\frac{N}{2}}{k} (-1)^k \quad \int_{L = 0}^{L = L_c} dL \quad L^{3N+2}  e^{\frac{(2N-k) q E_0 L}{2 k_B T}}
+\end{flalign*}
+\begin{flalign*}
+I_2 = \sum_{k=0}^{\frac{N}{2}} \binom{\frac{N}{2}}{k} (-1)^k \quad \int_{L = 0}^{L = L_c} dL \quad L^{3N+2}  e^{\frac{(2N-k) q E_0 L}{2 k_B T}}
+\end{flalign*}
+\section{Monte Carlo methods to compute the partition function and phase transitions}
 \section{Conclusion}
 \begin{thebibliography}{999}
 \bibitem{electricFieldsAndBoilingPoints}
@@ -69,5 +164,9 @@ A. Lewandowski, A. Swiderska-Mocek, "Phase Diagram for Ionic Liquids", Zeitschri
 Hill, Terrence (1987), "Statistical Mechanics: Principles and Selected Applications", New York: Dover
 \bibitem{ref2}
 Kardar, Mehran (2007), "Statistical Physics of Particles", New York: Cambridge University Press
+\bibitem{compintegral}
+Geddes, K. O.; Czapor, S. R.; Labahn, G. (1992), "Algorithms for computer algebra", Boston, MA: Kluwer Academic Publishers, ISBN 0-7923-9259-0
+\bibitem{mathematica}
+Wolfram Mathematica, "Some Notes On Internal Implementation", https://reference.wolfram.com/language/tutorial/\\SomeNotesOnInternalImplementation.html
 \end{thebibliography}
 \end{document}
