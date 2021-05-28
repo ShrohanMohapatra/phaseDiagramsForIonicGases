@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.4)  27 MAY 2021 11:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.4)  28 MAY 2021 03:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -264,73 +264,118 @@ Overfull \hbox (69.40886pt too wide) in paragraph at lines 104--104
  []
 
 
-Overfull \hbox (58.20967pt too wide) in paragraph at lines 115--115
+Overfull \hbox (128.10175pt too wide) in paragraph at lines 115--115
 [] 
  []
 
 
-Overfull \hbox (23.16582pt too wide) in paragraph at lines 118--118
+Overfull \hbox (93.87099pt too wide) in paragraph at lines 118--118
 [] 
  []
 
 [5]
-Overfull \hbox (58.20967pt too wide) in paragraph at lines 122--122
+Overfull \hbox (104.09464pt too wide) in paragraph at lines 135--135
 [] 
  []
 
 
-Overfull \hbox (23.16582pt too wide) in paragraph at lines 140--140
+Overfull \hbox (39.59683pt too wide) in paragraph at lines 138--138
+[] 
+ []
+
+
+Overfull \hbox (13.0995pt too wide) in paragraph at lines 141--141
+[] 
+ []
+
+
+Overfull \hbox (20.7975pt too wide) in paragraph at lines 145--145
+[] 
+ []
+
+
+Overfull \hbox (39.59683pt too wide) in paragraph at lines 148--148
+[] 
+ []
+
+
+Overfull \hbox (20.59952pt too wide) in paragraph at lines 151--151
 [] 
  []
 
 [6]
-Overfull \hbox (76.47002pt too wide) in paragraph at lines 153--153
+Overfull \hbox (116.01884pt too wide) in paragraph at lines 162--162
 [] 
  []
 
 
-Overfull \hbox (54.70929pt too wide) in paragraph at lines 157--157
+Overfull \hbox (30.56078pt too wide) in paragraph at lines 165--165
 [] 
  []
 
 
-Overfull \hbox (68.84274pt too wide) in paragraph at lines 160--160
+Overfull \hbox (54.25533pt too wide) in paragraph at lines 168--168
 [] 
  []
 
 
-Underfull \hbox (badness 1226) in paragraph at lines 177--178
+Overfull \hbox (37.50586pt too wide) in paragraph at lines 172--172
+[] 
+ []
+
+
+Overfull \hbox (30.56078pt too wide) in paragraph at lines 175--175
+[] 
+ []
+
+
+Overfull \hbox (61.75534pt too wide) in paragraph at lines 178--178
+[] 
+ []
+
+
+Overfull \hbox (54.70929pt too wide) in paragraph at lines 182--182
+[] 
+ []
+
+
+Overfull \hbox (68.84274pt too wide) in paragraph at lines 185--185
+[] 
+ []
+
+[7]
+Underfull \hbox (badness 1226) in paragraph at lines 202--203
 []\OT1/cmr/m/n/10 Wolfram Math-e-mat-ica, "Some Notes On In-ter-nal Im-ple-men-
 ta-tion",
  []
 
-[7] [8] (./myPaper1.aux) ) 
+[8] (./myPaper1.aux) ) 
 Here is how much of TeX's memory you used:
  2436 strings out of 492995
  32437 string characters out of 6132705
- 106673 words of memory out of 5000000
+ 110673 words of memory out of 5000000
  5953 multiletter control sequences out of 15000+600000
  13075 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,12n,26p,849b,207s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2017/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmbx5.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmbx9.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmex10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmmi10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmmi5.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmmi7.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmr10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmr12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r17.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5
-.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pf
-b></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
-></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><
-/usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></u
-sr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on myPaper1.pdf (8 pages, 226769 bytes).
+ 39i,12n,26p,849b,205s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2017/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmbx10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmbx12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmbx5.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmbx9.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmex10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmmi10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmmi5.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmmi7.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
+2.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.
+pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb
+></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></
+usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></u
+sr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr
+/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/l
+ocal/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on myPaper1.pdf (8 pages, 230610 bytes).
 PDF statistics:
  120 PDF objects out of 1000 (max. 8388607)
  85 compressed objects within 1 object stream
