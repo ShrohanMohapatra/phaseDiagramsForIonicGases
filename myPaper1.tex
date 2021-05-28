@@ -102,54 +102,79 @@ Z_c(N, V, T) = \frac{V^N}{\Gamma(\frac{N}{2}+1)^2} \bigg(\frac{k_B T}{q E_0}\big
 \begin{flalign*}
 Z_c(N, L, T) = \frac{L^{3N}}{\Gamma(\frac{N}{2}+1)^2} \bigg(\frac{k_B T}{q E_0}\bigg)^{\frac{N}{2}} \bigg(\frac{2 \pi m k_B T}{h^2}\bigg)^\frac{3N}{2} \bigg(\bigg(e^{\frac{-q E_0 L}{2 k_B T}}-e^{\frac{-q E_0 L}{k_B T}}\bigg)^{\frac{N}{2}}+\bigg(e^{\frac{q E_0 L}{2 k_B T}}-1\bigg)^{\frac{N}{2}}\bigg)
 \end{flalign*}
-We come back to the definition of the Gibbs' partition function $Z(N, P, T) = \int dV \quad Z_c(N, V, T) e^{-\frac{P V}{k_B T}}$. I think it is convenient to resort to the reminiscent algebraic transformation $V = L^3 \rightarrow dV = 3 L^2 dL$. Therefore the Gibbs' partition function for the molten salt can be calculated as,
+We come back to the definition of the Gibbs' partition function $Z(N, P, T) = \int \frac{P dV}{k_B T} \quad Z_c(N, V, T) e^{-\frac{P V}{k_B T}}$. I think it is convenient to resort to the reminiscent algebraic transformation $V = L^3 \rightarrow dV = 3 L^2 dL$. Therefore the Gibbs' partition function for the molten salt can be calculated as,
 \begin{flalign*}
-Z(N, P, T) = \int_{L = 0}^{L = \infty} dL \quad \frac{3 L^{3N+2}}{\Gamma(\frac{N}{2}+1)^2} \bigg(\frac{k_B T}{q E_0}\bigg)^{\frac{N}{2}}
+Z(N, P, T) = \frac{P}{k_B T} \int_{L = 0}^{L = \infty} dL \quad \frac{3 L^{3N+2}}{\Gamma(\frac{N}{2}+1)^2} e^{\frac{-P L^3}{k_B T}} \bigg(\frac{k_B T}{q E_0}\bigg)^{\frac{N}{2}}
 \end{flalign*}
 \begin{flalign*}
 \bigg(\frac{2 \pi m k_B T}{h^2}\bigg)^\frac{3N}{2} \bigg(\bigg(e^{\frac{-q E_0 L}{2 k_B T}}-e^{\frac{-q E_0 L}{k_B T}}\bigg)^{\frac{N}{2}}+\bigg(e^{\frac{q E_0 L}{2 k_B T}}-1\bigg)^{\frac{N}{2}}\bigg)
 \end{flalign*}
 The partition function linearly depends on the integrals,
 \begin{flalign*}
-I_1 = \int_{L = 0}^{L = \infty} dL \quad L^{3N+2} \bigg(e^{\frac{-q E_0 L}{2 k_B T}}-e^{\frac{-q E_0 L}{k_B T}}\bigg)^{\frac{N}{2}} = \int_{L = 0}^{L = \infty} dL \quad L^{3N+2} e^{\frac{-N q E_0 L}{k_B T}} \bigg(1-e^{\frac{-q E_0 L}{k_B T}}\bigg)^{\frac{N}{2}}
+I_1 = \int_{L = 0}^{L = \infty} dL \quad \frac{P L^{3N+2}}{k_B T} e^{\frac{-P L^3}{k_B T}} \bigg(e^{\frac{-q E_0 L}{2 k_B T}}-e^{\frac{-q E_0 L}{k_B T}}\bigg)^{\frac{N}{2}} = \int_{L = 0}^{L = \infty} dL \quad \frac{P L^{3N+2}}{k_B T} e^{\frac{-P L^3}{k_B T}-\frac{N q E_0 L}{k_B T}} \bigg(1-e^{\frac{-q E_0 L}{k_B T}}\bigg)^{\frac{N}{2}}
 \end{flalign*}
 \begin{flalign*}
-I_2 = \int_{L = 0}^{L = \infty} dL \quad L^{3N+2} \bigg(e^{\frac{q E_0 L}{2 k_B T}}-1\bigg)^{\frac{N}{2}} = \int_{L = 0}^{L = \infty} dL \quad L^{3N+2} e^{\frac{N q E_0 L}{k_B T}} \bigg(1-e^{\frac{-q E_0 L}{2 k_B T}}\bigg)^{\frac{N}{2}}
+I_2 = \int_{L = 0}^{L = \infty} dL \quad \frac{P L^{3N+2}}{k_B T} e^{\frac{-P L^3}{k_B T}} \bigg(e^{\frac{q E_0 L}{2 k_B T}}-1\bigg)^{\frac{N}{2}} = \int_{L = 0}^{L = \infty} dL \quad \frac{P L^{3N+2}}{k_B T} e^{\frac{N q E_0 L}{k_B T}-\frac{P L^3}{k_B T}} \bigg(1-e^{\frac{-q E_0 L}{2 k_B T}}\bigg)^{\frac{N}{2}}
 \end{flalign*}
 The two integrals look similar and can be computed by similar methods (as is explained a little further) but cannot be directly related by trivial transformation of the variables. Both of them are otherwise intractable at this stage, which could be proven by Liouville's theorem \cite{githubrepo, compintegral, mathematica}. But one can simplify one step further from here using binomial theorem.
 \begin{flalign*}
-I_1 = \int_{L = 0}^{L = \infty} dL \quad L^{3N+2} \bigg(e^{\frac{-q E_0 L}{2 k_B T}}-e^{\frac{-q E_0 L}{k_B T}}\bigg)^{\frac{N}{2}} = \int_{L = 0}^{L = \infty} dL \quad L^{3N+2} e^{\frac{-N q E_0 L}{k_B T}} \bigg(1-e^{\frac{-q E_0 L}{k_B T}}\bigg)^{\frac{N}{2}}
+I_1 = \int_{L = 0}^{L = \infty} dL \quad \frac{P L^{3N+2}}{k_B T} e^{\frac{-P L^3}{k_B T}} \bigg(e^{\frac{-q E_0 L}{2 k_B T}}-e^{\frac{-q E_0 L}{k_B T}}\bigg)^{\frac{N}{2}} 
 \end{flalign*}
 \begin{flalign*}
-= \int_{L = 0}^{L = \infty} dL \quad L^{3N+2} e^{\frac{-N q E_0 L}{k_B T}} \sum_{k=0}^{\frac{N}{2}} \binom{\frac{N}{2}}{k} (-1)^k e^{\frac{-k q E_0 L}{k_B T}}
+= \int_{L = 0}^{L = \infty} dL \quad \frac{P L^{3N+2}}{k_B T} e^{\frac{-P L^3}{k_B T} - \frac{N q E_0 L}{k_B T}} \bigg(1-e^{\frac{-q E_0 L}{k_B T}}\bigg)^{\frac{N}{2}}
 \end{flalign*}
 \begin{flalign*}
-\rightarrow I_1 = \sum_{k=0}^{\frac{N}{2}} \binom{\frac{N}{2}}{k} (-1)^k \quad \int_{L = 0}^{L = \infty} dL \quad L^{3N+2}  e^{\frac{-(N+k) q E_0 L}{k_B T}}
+= \int_{L = 0}^{L = \infty} dL \quad \frac{P L^{3N+2}}{k_B T} e^{\frac{-P L^3}{k_B T}-\frac{N q E_0 L}{k_B T}} \sum_{k=0}^{\frac{N}{2}} \binom{\frac{N}{2}}{k} (-1)^k e^{\frac{-k q E_0 L}{k_B T}}
+\end{flalign*}
+\begin{flalign*}
+\rightarrow I_1 = \sum_{k=0}^{\frac{N}{2}} \binom{\frac{N}{2}}{k} (-1)^k \quad \int_{L = 0}^{L = \infty} dL \quad \frac{P L^{3N+2}}{k_B T}  e^{\frac{-P L^3}{k_B T}-\frac{(N+k) q E_0 L}{k_B T}}
 \end{flalign*}
 Now the simplification of the integral \cite{githubrepo} leads to,
 \begin{flalign*}
-\int_{L = 0}^{L = \infty} dL \quad L^{3N+2}  e^{\frac{-(N+k) q E_0 L}{k_B T}} = \bigg(\frac{(N+k)q E_0}{k_B T}\bigg)^{-3(N+1)} \Gamma(3N+3)
+\int_{L = 0}^{L = \infty} dL \quad \frac{P L^{3N+2}}{k_B T}  e^{\frac{-P L^3}{k_B T}-\frac{(N+k) q E_0 L}{k_B T}} = \frac{1}{3} \bigg( \frac{k_B T}{P} \bigg)^N \Gamma(N+1) _{1}F_2\bigg(\{N+1\},\{\frac{1}{3},\frac{2}{3}\},\frac{-(q E_0 (k+N))^3}{27P(k_B T)^2}\bigg)
+\end{flalign*}
+\begin{flalign*}
++ \frac{1}{6} \bigg(\frac{q E_0 (N+k)}{k_B T}\bigg)^2 \bigg(\frac{k_B T}{P}\bigg)^{N+\frac{2}{3}} \Gamma\bigg(N+\frac{2}{3}\bigg) \quad _{1}F_2\bigg(\{N+\frac{5}{3}\},\{\frac{4}{3},\frac{5}{3}\},\frac{-(q E_0 (k+N))^3}{27P(k_B T)^2}\bigg)
+\end{flalign*}
+\begin{flalign*}
+- \frac{q E_0 (N+k)}{3 P} \bigg(\frac{k_B T}{P}\bigg)^{N-\frac{2}{3}} \Gamma\bigg(N+\frac{4}{3}\bigg) \quad _{1}F_2\bigg(\{N+\frac{4}{3}\},\{\frac{2}{3},\frac{4}{3}\},\frac{-(q E_0 (k+N))^3}{27P(k_B T)^2}\bigg)
 \end{flalign*}
 Thus,
 \begin{flalign*}
-I_1 = \sum_{k=0}^{\frac{N}{2}} \binom{\frac{N}{2}}{k} (-1)^k \bigg(\frac{(N+k)q E_0}{k_B T}\bigg)^{-3(N+1)} \Gamma(3N+3)
+I_1 = \sum_{k=0}^{\frac{N}{2}} \binom{\frac{N}{2}}{k} (-1)^k \bigg\{ \frac{1}{3} \bigg( \frac{k_B T}{P} \bigg)^N \Gamma(N+1) _{1}F_2\bigg(\{N+1\},\{\frac{1}{3},\frac{2}{3}\},\frac{-(q E_0 (k+N))^3}{27P(k_B T)^2}\bigg)
+\end{flalign*}
+\begin{flalign*}
++ \frac{1}{6} \bigg(\frac{q E_0 (N+k)}{k_B T}\bigg)^2 \bigg(\frac{k_B T}{P}\bigg)^{N+\frac{2}{3}} \Gamma\bigg(N+\frac{2}{3}\bigg) \quad _{1}F_2\bigg(\{N+\frac{5}{3}\},\{\frac{4}{3},\frac{5}{3}\},\frac{-(q E_0 (k+N))^3}{27P(k_B T)^2}\bigg)
+\end{flalign*}
+\begin{flalign*}
+- \frac{q E_0 (N+k)}{3 P} \bigg(\frac{k_B T}{P}\bigg)^{N-\frac{2}{3}} \Gamma\bigg(N+\frac{4}{3}\bigg) \quad _{1}F_2\bigg(\{N+\frac{4}{3}\},\{\frac{2}{3},\frac{4}{3}\},\frac{-(q E_0 (k+N))^3}{27P(k_B T)^2}\bigg) \bigg\}
 \end{flalign*}
 Similarly, I can compute the other integral to be the following.
 \begin{flalign*}
-I_2 = \int_{L = 0}^{L = \infty} dL \quad L^{3N+2} \bigg(e^{\frac{q E_0 L}{2 k_B T}}-1\bigg)^{\frac{N}{2}} = \int_{L = 0}^{L = \infty} dL \quad L^{3N+2} e^{\frac{N q E_0 L}{k_B T}} \bigg(1-e^{\frac{-q E_0 L}{2 k_B T}}\bigg)^{\frac{N}{2}}
+I_2 = \int_{L = 0}^{L = \infty} dL \quad \frac{P L^{3N+2}}{k_B T} e^{\frac{N q E_0 L}{k_B T}-\frac{P L^3}{k_B T}} \bigg(1-e^{\frac{-q E_0 L}{k_B T}}\bigg)^{\frac{N}{2}}
 \end{flalign*}
 \begin{flalign*}
-= \int_{L = 0}^{L = \infty} dL \quad L^{3N+2} e^{\frac{N q E_0 L}{k_B T}} \sum_{k=0}^{\frac{N}{2}} \binom{\frac{N}{2}}{k} (-1)^k e^{\frac{-k q E_0 L}{2 k_B T}}
+\rightarrow I_2 = \sum_{k=0}^{\frac{N}{2}} \binom{\frac{N}{2}}{k} (-1)^k \quad \int_{L = 0}^{L = \infty} dL \quad \frac{P L^{3N+2}}{k_B T}  e^{-\frac{P L^3}{k_B T}+\frac{(2N-k) q E_0 L}{2 k_B T}}
+\end{flalign*}
+And computing the integral gives,
+\begin{flalign*}
+\int_{L = 0}^{L = \infty} dL \quad \frac{P L^{3N+2}}{k_B T}  e^{-\frac{P L^3}{k_B T}+\frac{(2N-k) q E_0 L}{2 k_B T}} = \frac{1}{3} \bigg(\frac{k_B T}{P}\bigg)^N \Gamma(N+1) _1F_2\bigg(\{N+1\},\bigg\{\frac{1}{3},\frac{2}{3}\bigg\},\frac{(q E_0)^3(2N-k)^3}{216(k_B T)^2 P}\bigg)
 \end{flalign*}
 \begin{flalign*}
-\rightarrow I_2 = \sum_{k=0}^{\frac{N}{2}} \binom{\frac{N}{2}}{k} (-1)^k \quad \int_{L = 0}^{L = \infty} dL \quad L^{3N+2}  e^{\frac{(2N-k) q E_0 L}{2 k_B T}}
-\end{flalign*}
-Now the above integral diverges, as $0\le k\le \frac{N}{2}$, so we place a cutoff volume $L_c = V_c^{\frac{1}{3}}$,
-\begin{flalign*}
-I_2 = \sum_{k=0}^{\frac{N}{2}} \binom{\frac{N}{2}}{k} (-1)^k \quad \int_{L = 0}^{L = L_c} dL \quad L^{3N+2}  e^{\frac{(2N-k) q E_0 L}{2 k_B T}}
++ \frac{(2N-k)}{6} \frac{q E_0}{k_B T} \bigg(\frac{k_B T}{P}\bigg)^{N+\frac{1}{3}} \Gamma\bigg(N+\frac{4}{3}\bigg) \quad _1F_2\bigg[\bigg\{N+\frac{4}{3}\bigg\},\bigg\{\frac{2}{3},\frac{4}{3}\bigg\},\frac{(q E_0)^3 (2N-k)^3}{216 (k_B T)^2 P}\bigg]
 \end{flalign*}
 \begin{flalign*}
-\rightarrow I_2 = \sum_{k=0}^{\frac{N}{2}} \binom{\frac{N}{2}}{k} (-1)^{n+k} \quad \bigg(\frac{q E_0 (2n-k)}{2 k_B T}\bigg)^{-3(n+1)} \bigg(\Gamma\bigg(3n+3,\frac{-q E_0 L_c(2n-k)}{2 k_B T}\bigg)-\Gamma(3n+3)\bigg)
++ \frac{(2N-k)^2}{24} \bigg(\frac{q E_0}{k_B T}\bigg)^2 \bigg(\frac{k_B T}{P}\bigg)^{N+\frac{2}{3}} \Gamma\bigg(N+\frac{5}{3}\bigg) \quad _1F_2\bigg[\bigg\{N+\frac{5}{3}\bigg\},\bigg\{\frac{4}{3},\frac{5}{3}\bigg\},\frac{(q E_0)^3 (2N-k)^3}{216 (k_B T)^2 P}\bigg]
+\end{flalign*}
+Therefore,
+\begin{flalign*}
+I_2 = \sum_{k=0}^{\frac{N}{2}} \binom{\frac{N}{2}}{k} (-1)^k \quad \bigg\{ \frac{1}{3} \bigg(\frac{k_B T}{P}\bigg)^N \Gamma(N+1) _1F_2\bigg(\{N+1\},\bigg\{\frac{1}{3},\frac{2}{3}\bigg\},\frac{(q E_0)^3(2N-k)^3}{216(k_B T)^2 P}\bigg)
+\end{flalign*}
+\begin{flalign*}
++ \frac{(2N-k)}{6} \frac{q E_0}{k_B T} \bigg(\frac{k_B T}{P}\bigg)^{N+\frac{1}{3}} \Gamma\bigg(N+\frac{4}{3}\bigg) \quad _1F_2\bigg[\bigg\{N+\frac{4}{3}\bigg\},\bigg\{\frac{2}{3},\frac{4}{3}\bigg\},\frac{(q E_0)^3 (2N-k)^3}{216 (k_B T)^2 P}\bigg]
+\end{flalign*}
+\begin{flalign*}
++ \frac{(2N-k)^2}{24} \bigg(\frac{q E_0}{k_B T}\bigg)^2 \bigg(\frac{k_B T}{P}\bigg)^{N+\frac{2}{3}} \Gamma\bigg(N+\frac{5}{3}\bigg) \quad _1F_2\bigg[\bigg\{N+\frac{5}{3}\bigg\},\bigg\{\frac{4}{3},\frac{5}{3}\bigg\},\frac{(q E_0)^3 (2N-k)^3}{216 (k_B T)^2 P}\bigg] \bigg\}
 \end{flalign*}
 Thus the liquid state Gibbs' partition function is given by,
 \begin{flalign*}
