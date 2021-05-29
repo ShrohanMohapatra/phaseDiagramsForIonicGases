@@ -140,7 +140,7 @@ _1F_2\bigg(\bigg\{ \frac{N+5}{3}\bigg\}, \bigg\{\frac{4}{3},\frac{5}{3}\bigg\},\
 _1F_2\bigg(\{\frac{N}{3}+1\},\{\frac{1}{3},\frac{2}{3}\},\frac{-(q E_0)^3(2N+k)^3}{216(k_B T)^2P}\bigg)\bigg\} \bigg)
 \end{flalign*}
 Therefore the Gibbs canonical partition function for the molten salts is given by,
-\begin{equation}
+\begin{equation} \label{MoltenSalt}
 Z(N, P, T) = \frac{6 \Xi}{\Gamma\bigg(\frac{N}{2}+1\bigg)^2} \bigg(\frac{k_B T}{P}\bigg)^{\frac{N}{3}} \bigg(\frac{k_B T}{q E_0}\bigg)^{\frac{N}{2}} \bigg(\frac{2 \pi m k_B T}{h^2}\bigg)^{\frac{3N}{4}}
 \end{equation}
 where $\Xi$ is the following sum, which I would like to call the 'xi-sum',
@@ -255,10 +255,10 @@ I_2 = \int_{L=0}^{L=\infty} dL \quad \frac{PL^{N+2}}{k_B T} e^{-\frac{P L^3}{k_B
 \begin{flalign*}
 +\frac{k^2}{6} \bigg(\frac{q E_0}{k_B T}\bigg)^2 \bigg(\frac{k_B T}{P}\bigg)^{\frac{2}{3}} \Gamma\bigg(\frac{N+5}{3}\bigg)\quad _1F_2\bigg(\{N/3+5/3\},\{4/3,5/3\},\frac{k^3 (q E_0)^3}{27(k_B T)^2 P}\bigg)\bigg]
 \end{flalign*}
-Therefore the canonical partition function for the salts is given by,
-\begin{flalign*}
+Therefore the canonical partition function for the salt vapours is given by,
+\begin{equation} \label{SaltVapours}
 Z(N, P, T) = \frac{\zeta}{\Gamma\bigg(\frac{N}{2}+1\bigg)^2} \bigg(\frac{k_B T}{P}\bigg)^{\frac{N}{3}} \bigg(\frac{2\pi m k_B T}{h^2}\bigg)^{\frac{3N}{4}} \bigg(\frac{k_B T}{q E_0}\bigg)^{\frac{N}{2}}
-\end{flalign*}
+\end{equation}
 where $\zeta$, which I call as the 'zeta-sum', is given by,
 \begin{flalign*}
 \zeta = \sum_{k=0}^{k=\frac{N}{2}} \binom{\frac{N}{2}}{k} (-1)^k \bigg[\Gamma\bigg(\frac{N}{3}+1\bigg) \quad _1F_2\bigg(\{N/3+1\},\{1/3,2/3\},\frac{-k^3 (q E_0)^3}{27(k_B T)^2 P}\bigg)
@@ -280,6 +280,35 @@ where $\zeta$, which I call as the 'zeta-sum', is given by,
 \end{flalign*}
 Again, this sum cannot be further reduced to a simpler analytical expression. So this sum needs to be computed, and as has been mentioned as a footnote to the case of molten salts, a simple naive Monte Carlo algorithm has been suggested below with results based on the numerical simulation and its feasibility.
 \section{Monte Carlo methods to compute the partition function and phase transitions}
+As is illustrated in equations \ref{MoltenSalt} and \ref{SaltVapours}, the summations (the xi sum for molten salts and the zeta sum for ionic vapours) required to compute the partition function for the molten salt and the ionic vapour cases do not have a reduced closed-form expression from there on, so one requires to compute it by hand. For $N$ particles, there are $\frac{N}{2}+1$ terms for both the equations \ref{MoltenSalt} and \ref{SaltVapours}. Direct computation of this sum for a system involving macroscopic number of particles ($N \sim 10^{23}$ particles, much similar to the Avogadro's constant) becomes computationally expensive (or rather galactic). This motivates one to adopt a quick approximate algorithm such as the Monte Carlo methods \cite{statisticalMechanics}; this adopts choosing terms randomly (by obeying a specific probability distribution) from all the summands in the partition function and including them if they contribute to a large fraction of the final answer. It's good to try with the case of molten salts and assuming the terms being chosen from a uniform distribution; such an attempt in Wolfram Language has been illustrated in figure \ref{algoUniform} \cite{githubrepo}. The risk with this idea is the error with respect to the original answer; the reason is clearly visible in the plot shown in figure \ref{riskAnalysis}, because upon choosing the terms which are equally likely, the ones with the lower $k$ might be ignored abruptly before the while loop of the algorithm in figure \ref{algoUniform}. The variation of the 
+\begin{figure}
+\includegraphics[scale=0.38]{algoUniform.png}
+\caption{\label{algoUniform} The Wolfram code fragment that compute the xi sum for the molten salts assuming uniform distribution $U[0,\frac{N}{2}]$.}
+\end{figure}
+\begin{figure}
+\includegraphics[scale=0.85]{kTerm.pdf}
+\caption{\label{riskAnalysis} The variation of log of the absolute value of the terms of the xi sum. Here $n=800$, $q=1.6 \times 10^{-19}$ C, $E_0=10^{12} N C^{-1}$, $T = 800 K$, $P = 1$ atm. The probability distribution is designed accordingly.}
+\end{figure}
+The quick remedy is an empirical probability distribution that favours the larger terms more than the smaller ones: a function $f(x)$ defined as,
+\begin{equation}
+f(x) = \begin{cases}
+	\frac{3}{N} - \frac{4x}{N^2} & 0 \le x \le \frac{N}{2} \\
+	0 & x < 0 \lor x > \frac{N}{2}
+\end{cases}
+\end{equation}
+And using $f(x)$, the modified algorithm looks like the Wolfram code segment shown in figure \ref{algoSuit}. This modification improves the correctness of the algorithm as shown in the figure \ref{algoComplexity} (the metric of correctness being the percentage of the sum computed by the modified algorithm of the actual total sum) and also the time complexity as shown in the figure \ref{algoCorrect}. After being convinced of the performance of this algorithm, one can now compute the xi sum of the partition function and plot the Gibbs free energy for the molten salt case \cite{githubrepo}.
+\begin{figure}
+\includegraphics[scale=0.38]{algoSuit.png}
+\caption{\label{algoSuit} The Wolfram code fragment that compute the xi sum for the molten salts assuming the probability distribution function $f(x)$.}
+\end{figure}
+\begin{figure}
+\includegraphics[scale=0.55]{algoComplexity.pdf}
+\caption{\label{algoComplexity} The time complexity of the modified algorithm against that to compute the complete sum and its variation with the number of particles $N$. The time measured is in seconds as plotted along the y-axis.}
+\end{figure}
+\begin{figure}
+\includegraphics[scale=0.85]{algoCorrect.pdf}
+\caption{\label{algoCorrect} The percentage of the sum computed by the modified algorithm of the actual total sum for a small number of particles.}
+\end{figure}
 \section{Conclusion}
 \begin{thebibliography}{999}
 \bibitem{electricFieldsAndBoilingPoints}
@@ -296,5 +325,7 @@ Kardar, Mehran (2007), "Statistical Physics of Particles", New York: Cambridge U
 Geddes, K. O.; Czapor, S. R.; Labahn, G. (1992), "Algorithms for computer algebra", Boston, MA: Kluwer Academic Publishers, ISBN 0-7923-9259-0
 \bibitem{mathematica}
 Wolfram Mathematica, "Some Notes On Internal Implementation", https://reference.wolfram.com/language/tutorial/\\SomeNotesOnInternalImplementation.html
+\bibitem{statisticalMechanics}
+Pathria, R. K.; Beale, P. D., "Statistical Mechanics", Academic Press, ISBN: 978-0-12-382188-1 (2011)
 \end{thebibliography}
 \end{document}
