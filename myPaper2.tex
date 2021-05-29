@@ -209,6 +209,76 @@ I_1 = \int_{L=0}^{L=\infty} dL \quad \frac{P L^{N+2}}{k_B T} e^{\frac{-P L^3}{k_
 \begin{flalign*}
 I_2 = \int_{L=0}^{L=\infty} dL \quad \frac{P L^{N+2}}{k_B T} e^{\frac{-P L^3}{k_B T}} \bigg(e^{\frac{q E_0 L}{k_B T}}-1\bigg)^{\frac{N}{2}}
 \end{flalign*}
+I would be simplifying both the integrals using the binomial expansion and then integrating using Risch algorithm \cite{githubrepo, compintegral}.
+\begin{flalign*}
+I_1 = \int_{L=0}^{L=\infty} dL \quad \frac{P L^{N+2}}{k_B T} e^{\frac{-P L^3}{k_B T}} \bigg(1-e^{-\frac{q E_0 L}{k_B T}}\bigg)^{\frac{N}{2}} 
+\end{flalign*}
+\begin{flalign*}
+\rightarrow I_1 = \int_{L=0}^{L=\infty} dL \quad \frac{P L^{N+2}}{k_B T} e^{\frac{-P L^3}{k_B T}} \sum_{k=0}^{k=\frac{N}{2}} \binom{\frac{N}{2}}{k} (-1)^k e^{\frac{-k q E_0 L}{k_B T}}
+\end{flalign*}
+\begin{flalign*}
+\rightarrow I_1 = \sum_{k=0}^{k=\frac{N}{2}} \binom{\frac{N}{2}}{k} (-1)^k \int_{L=0}^{L=\infty} dL \quad \frac{P L^{N+2}}{k_B T} e^{\frac{-P L^3}{k_B T}-\frac{k q E_0 L}{k_B T}}
+\end{flalign*}
+\begin{flalign*}
+\rightarrow I_1 = \sum_{k=0}^{k=\frac{N}{2}} \binom{\frac{N}{2}}{k} (-1)^k \bigg[\frac{1}{3} \bigg(\frac{k_B T}{P}\bigg)^{\frac{N}{3}}\Gamma\bigg(\frac{N}{3}+1\bigg) \quad _1F_2\bigg(\{N/3+1\},\{1/3,2/3\},\frac{-k^3 (q E_0)^3}{27(k_B T)^2 P}\bigg)
+\end{flalign*}
+\begin{flalign*}
+-\frac{k}{3} \frac{q E_0}{k_B T} \bigg(\frac{k_B T}{P}\bigg)^{\frac{N+1}{3}} \Gamma\bigg(\frac{N+4}{3}\bigg)\quad _1F_2\bigg(\{N/3+4/3\},\{2/3,4/3\},\frac{-k^3 (q E_0)^3}{27(k_B T)^2 P}\bigg)
+\end{flalign*}
+\begin{flalign*}
++\frac{k^2}{6} \bigg(\frac{q E_0}{k_B T}\bigg)^2 \bigg(\frac{k_B T}{P}\bigg)^{\frac{N+2}{3}} \Gamma\bigg(\frac{N+5}{3}\bigg)\quad _1F_2\bigg(\{N/3+5/3\},\{4/3,5/3\},\frac{-k^3 (q E_0)^3}{27(k_B T)^2 P}\bigg)\bigg]
+\end{flalign*}
+\begin{flalign*}
+\rightarrow I_1 = \bigg(\frac{k_B T}{P}\bigg)^{\frac{N}{3}} \sum_{k=0}^{k=\frac{N}{2}} \binom{\frac{N}{2}}{k} (-1)^k \bigg[\frac{1}{3} \Gamma\bigg(\frac{N}{3}+1\bigg) \quad _1F_2\bigg(\{N/3+1\},\{1/3,2/3\},\frac{-k^3 (q E_0)^3}{27(k_B T)^2 P}\bigg)
+\end{flalign*}
+\begin{flalign*}
+-\frac{k}{3} \frac{q E_0}{k_B T} \bigg(\frac{k_B T}{P}\bigg)^{\frac{1}{3}} \Gamma\bigg(\frac{N+4}{3}\bigg)\quad _1F_2\bigg(\{N/3+4/3\},\{2/3,4/3\},\frac{-k^3 (q E_0)^3}{27(k_B T)^2 P}\bigg)
+\end{flalign*}
+\begin{flalign*}
++\frac{k^2}{6} \bigg(\frac{q E_0}{k_B T}\bigg)^2 \bigg(\frac{k_B T}{P}\bigg)^{\frac{2}{3}} \Gamma\bigg(\frac{N+5}{3}\bigg)\quad _1F_2\bigg(\{N/3+5/3\},\{4/3,5/3\},\frac{-k^3 (q E_0)^3}{27(k_B T)^2 P}\bigg)\bigg]
+\end{flalign*}
+\begin{flalign*}
+I_2 = \int_{L=0}^{L=\infty} dL \quad \frac{PL^{N+2}}{k_B T} e^{-\frac{P L^3}{k_B T}} (e^{\frac{q E_0 L}{k_B T}}-1)^{\frac{N}{2}}
+\end{flalign*}
+\begin{flalign*}
+\rightarrow I_2 = \int_{L=0}^{L=\infty} dL \quad \frac{P L^{N+2}}{k_B T} e^{-\frac{P L^3}{k_B T}} \sum_{k=0}^{k=\frac{N}{2}} \binom{\frac{N}{2}}{k} (-1)^{\frac{N}{2}-k} e^{\frac{k q E_0 L}{k_B T}}
+\end{flalign*}
+\begin{flalign*}
+\rightarrow I_2 = \sum_{k=0}^{k=\frac{N}{2}} \binom{\frac{N}{2}}{k} (-1)^{\frac{N}{2}-k} \int_{L=0}^{L=\infty} dL \quad \frac{P L^{N+2}}{k_B T} e^{-\frac{P L^3}{k_B T}+\frac{k q E_0 L}{k_B T}} 
+\end{flalign*}
+\begin{flalign*}
+\rightarrow I_2 = \bigg(\frac{k_B T}{P}\bigg)^{\frac{N}{3}} \sum_{k=0}^{k=\frac{N}{2}} \binom{\frac{N}{2}}{k} (-1)^{\frac{N}{2}-k} \bigg[\frac{1}{3} \Gamma\bigg(\frac{N}{3}+1\bigg) \quad _1F_2\bigg(\{N/3+1\},\{1/3,2/3\},\frac{k^3 (q E_0)^3}{27(k_B T)^2 P}\bigg)
+\end{flalign*}
+\begin{flalign*}
++\frac{k}{3} \frac{q E_0}{k_B T} \bigg(\frac{k_B T}{P}\bigg)^{\frac{1}{3}} \Gamma\bigg(\frac{N+4}{3}\bigg)\quad _1F_2\bigg(\{N/3+4/3\},\{2/3,4/3\},\frac{k^3 (q E_0)^3}{27(k_B T)^2 P}\bigg)
+\end{flalign*}
+\begin{flalign*}
++\frac{k^2}{6} \bigg(\frac{q E_0}{k_B T}\bigg)^2 \bigg(\frac{k_B T}{P}\bigg)^{\frac{2}{3}} \Gamma\bigg(\frac{N+5}{3}\bigg)\quad _1F_2\bigg(\{N/3+5/3\},\{4/3,5/3\},\frac{k^3 (q E_0)^3}{27(k_B T)^2 P}\bigg)\bigg]
+\end{flalign*}
+Therefore the canonical partition function for the salts is given by,
+\begin{flalign*}
+Z(N, P, T) = \frac{\zeta}{\Gamma\bigg(\frac{N}{2}+1\bigg)^2} \bigg(\frac{k_B T}{P}\bigg)^{\frac{N}{3}} \bigg(\frac{2\pi m k_B T}{h^2}\bigg)^{\frac{3N}{4}} \bigg(\frac{k_B T}{q E_0}\bigg)^{\frac{N}{2}}
+\end{flalign*}
+where $\zeta$, which I call as the 'zeta-sum', is given by,
+\begin{flalign*}
+\zeta = \sum_{k=0}^{k=\frac{N}{2}} \binom{\frac{N}{2}}{k} (-1)^k \bigg[\Gamma\bigg(\frac{N}{3}+1\bigg) \quad _1F_2\bigg(\{N/3+1\},\{1/3,2/3\},\frac{-k^3 (q E_0)^3}{27(k_B T)^2 P}\bigg)
+\end{flalign*}
+\begin{flalign*}
+- k \frac{q E_0}{k_B T} \bigg(\frac{k_B T}{P}\bigg)^{\frac{1}{3}} \Gamma\bigg(\frac{N+4}{3}\bigg)\quad _1F_2\bigg(\{N/3+4/3\},\{2/3,4/3\},\frac{-k^3 (q E_0)^3}{27(k_B T)^2 P}\bigg)
+\end{flalign*}
+\begin{flalign*}
++\frac{k^2}{2} \bigg(\frac{q E_0}{k_B T}\bigg)^2 \bigg(\frac{k_B T}{P}\bigg)^{\frac{2}{3}} \Gamma\bigg(\frac{N+5}{3}\bigg)\quad _1F_2\bigg(\{N/3+5/3\},\{4/3,5/3\},\frac{-k^3 (q E_0)^3}{27(k_B T)^2 P}\bigg)\bigg]
+\end{flalign*}
+\begin{flalign*}
++ \binom{\frac{N}{2}}{k} (-1)^{\frac{N}{2}-k} \bigg[ \Gamma\bigg(\frac{N}{3}+1\bigg) \quad _1F_2\bigg(\{N/3+1\},\{1/3,2/3\},\frac{k^3 (q E_0)^3}{27(k_B T)^2 P}\bigg)
+\end{flalign*}
+\begin{flalign*}
++k \frac{q E_0}{k_B T} \bigg(\frac{k_B T}{P}\bigg)^{\frac{1}{3}} \Gamma\bigg(\frac{N+4}{3}\bigg)\quad _1F_2\bigg(\{N/3+4/3\},\{2/3,4/3\},\frac{k^3 (q E_0)^3}{27(k_B T)^2 P}\bigg)
+\end{flalign*}
+\begin{flalign*}
++\frac{k^2}{2} \bigg(\frac{q E_0}{k_B T}\bigg)^2 \bigg(\frac{k_B T}{P}\bigg)^{\frac{2}{3}} \Gamma\bigg(\frac{N+5}{3}\bigg)\quad _1F_2\bigg(\{N/3+5/3\},\{4/3,5/3\},\frac{k^3 (q E_0)^3}{27(k_B T)^2 P}\bigg)\bigg]
+\end{flalign*}
+Again, this sum cannot be further reduced to a simpler analytical expression. So this sum needs to be computed, and as has been mentioned as a footnote to the case of molten salts, a simple naive Monte Carlo algorithm has been suggested below with results based on the numerical simulation and its feasibility.
 \section{Monte Carlo methods to compute the partition function and phase transitions}
 \section{Conclusion}
 \begin{thebibliography}{999}
