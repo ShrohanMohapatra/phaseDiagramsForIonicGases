@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.4)  29 MAY 2021 04:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.4)  29 MAY 2021 15:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -348,43 +348,84 @@ Overfull \hbox (14.62592pt too wide) in paragraph at lines 280--280
 [] 
  []
 
-[10]
-Underfull \hbox (badness 1226) in paragraph at lines 298--299
+[10] <algoUniform.png, id=73, 1133.23375pt x 605.26125pt>
+File: algoUniform.png Graphic file (type png)
+
+<use algoUniform.png>
+Package pdftex.def Info: algoUniform.png used on input line 285.
+(pdftex.def)             Requested size: 430.6333pt x 230.00165pt.
+
+Overfull \hbox (85.6333pt too wide) in paragraph at lines 285--286
+[][] 
+ []
+
+<kTerm.pdf, id=75, 361.35pt x 194.7275pt>
+File: kTerm.pdf Graphic file (type pdf)
+ <use kTerm.pdf>
+Package pdftex.def Info: kTerm.pdf used on input line 289.
+(pdftex.def)             Requested size: 307.14896pt x 165.51913pt.
+
+<algoSuit.png, id=76, 1077.02374pt x 625.33624pt>
+File: algoSuit.png Graphic file (type png)
+ <use algoSuit.png>
+Package pdftex.def Info: algoSuit.png used on input line 301.
+(pdftex.def)             Requested size: 409.27327pt x 237.63023pt.
+
+Overfull \hbox (64.27327pt too wide) in paragraph at lines 301--302
+[][] 
+ []
+
+<algoComplexity.pdf, id=77, 621.32124pt x 174.6525pt>
+File: algoComplexity.pdf Graphic file (type pdf)
+ <use algoComplexity.pdf>
+Package pdftex.def Info: algoComplexity.pdf used on input line 305.
+(pdftex.def)             Requested size: 341.72774pt x 96.05916pt.
+
+<algoCorrect.pdf, id=78, 361.35pt x 166.6225pt>
+File: algoCorrect.pdf Graphic file (type pdf)
+ <use algoCorrect.pdf>
+Package pdftex.def Info: algoCorrect.pdf used on input line 309.
+(pdftex.def)             Requested size: 307.14896pt x 141.62978pt.
+ [11]
+[12 <./algoUniform.png> <./kTerm.pdf>] [13 <./algoSuit.png> <./algoComplexity.p
+df>]
+Underfull \hbox (badness 1226) in paragraph at lines 327--328
 []\OT1/cmr/m/n/10 Wolfram Math-e-mat-ica, "Some Notes On In-ter-nal Im-ple-men-
 ta-tion",
  []
 
-[11] (./myPaper2.aux) ) 
+[14 <./algoCorrect.pdf>] (./myPaper2.aux) ) 
 Here is how much of TeX's memory you used:
- 2436 strings out of 492995
- 32437 string characters out of 6132705
- 108673 words of memory out of 5000000
- 5953 multiletter control sequences out of 15000+600000
+ 2470 strings out of 492995
+ 32994 string characters out of 6132705
+ 108739 words of memory out of 5000000
+ 5981 multiletter control sequences out of 15000+600000
  13075 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,13n,26p,849b,202s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2017/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmbx10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmbx12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmbx5.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmbx7.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmbx9.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmex10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmmi10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmmi5.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mmi7.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
-10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12
-.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.p
-fb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb>
-</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></u
-sr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></us
-r/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/
-local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/lo
-cal/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on myPaper2.pdf (11 pages, 251562 bytes).
+ 39i,13n,26p,1603b,219s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2017/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2017/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2017/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmbx5.pfb></usr/local/texlive/2017/texmf-dist/font
+s/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2017/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2017/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2017/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmr10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmr12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmr17.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr5.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmr7.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmsy10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmsy5.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmsy7.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmti10.pfb>
+Output written on myPaper2.pdf (14 pages, 465081 bytes).
 PDF statistics:
- 133 PDF objects out of 1000 (max. 8388607)
- 94 compressed objects within 1 object stream
+ 192 PDF objects out of 1000 (max. 8388607)
+ 132 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
