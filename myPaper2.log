@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.4)  29 MAY 2021 15:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.4)  30 MAY 2021 13:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -368,64 +368,171 @@ Package pdftex.def Info: kTerm.pdf used on input line 289.
 <algoSuit.png, id=76, 1077.02374pt x 625.33624pt>
 File: algoSuit.png Graphic file (type png)
  <use algoSuit.png>
-Package pdftex.def Info: algoSuit.png used on input line 301.
+Package pdftex.def Info: algoSuit.png used on input line 300.
 (pdftex.def)             Requested size: 409.27327pt x 237.63023pt.
 
-Overfull \hbox (64.27327pt too wide) in paragraph at lines 301--302
+Overfull \hbox (64.27327pt too wide) in paragraph at lines 300--301
 [][] 
  []
 
 <algoComplexity.pdf, id=77, 621.32124pt x 174.6525pt>
 File: algoComplexity.pdf Graphic file (type pdf)
  <use algoComplexity.pdf>
-Package pdftex.def Info: algoComplexity.pdf used on input line 305.
+Package pdftex.def Info: algoComplexity.pdf used on input line 304.
 (pdftex.def)             Requested size: 341.72774pt x 96.05916pt.
 
-<algoCorrect.pdf, id=78, 361.35pt x 166.6225pt>
+<algoCorrect.pdf, id=78, 361.35pt x 203.76125pt>
 File: algoCorrect.pdf Graphic file (type pdf)
  <use algoCorrect.pdf>
-Package pdftex.def Info: algoCorrect.pdf used on input line 309.
-(pdftex.def)             Requested size: 307.14896pt x 141.62978pt.
- [11]
-[12 <./algoUniform.png> <./kTerm.pdf>] [13 <./algoSuit.png> <./algoComplexity.p
-df>]
-Underfull \hbox (badness 1226) in paragraph at lines 327--328
+Package pdftex.def Info: algoCorrect.pdf used on input line 308.
+(pdftex.def)             Requested size: 180.67456pt x 101.88037pt.
+
+<algoCorrect1.pdf, id=79, 361.35pt x 203.76125pt>
+File: algoCorrect1.pdf Graphic file (type pdf)
+ <use algoCorrect1.pdf>
+Package pdftex.def Info: algoCorrect1.pdf used on input line 309.
+(pdftex.def)             Requested size: 180.67456pt x 101.88037pt.
+
+Overfull \hbox (18.57133pt too wide) in paragraph at lines 308--310
+[][] [] 
+ []
+
+<LiquidPhaseGibbsEnergy.pdf, id=80, 376.40625pt x 245.91875pt>
+File: LiquidPhaseGibbsEnergy.pdf Graphic file (type pdf)
+
+<use LiquidPhaseGibbsEnergy.pdf>
+Package pdftex.def Info: LiquidPhaseGibbsEnergy.pdf used on input line 314.
+(pdftex.def)             Requested size: 225.84547pt x 147.55237pt.
+
+<LiquidPhaseGibbsEnergy2.pdf, id=81, 353.32pt x 257.96375pt>
+File: LiquidPhaseGibbsEnergy2.pdf Graphic file (type pdf)
+
+<use LiquidPhaseGibbsEnergy2.pdf>
+Package pdftex.def Info: LiquidPhaseGibbsEnergy2.pdf used on input line 315.
+(pdftex.def)             Requested size: 211.99364pt x 154.77943pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 314--316
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 298--320
+
+ []
+
+[11] [12 <./algoUniform.png> <./kTerm.pdf>] [13 <./algoSuit.png> <./algoComplex
+ity.pdf>] [14 <./algoCorrect.pdf> <./algoCorrect1.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./algoCorrect1.pdf): PDF inc
+lusion: multiple pdfs with page group included in a single page
+> <./LiquidPhaseGibbsEnergy.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./LiquidPhaseGibbsEnergy.pdf
+): PDF inclusion: multiple pdfs with page group included in a single page
+> <./LiquidPhaseGibbsEnergy2.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./LiquidPhaseGibbsEnergy2.pd
+f): PDF inclusion: multiple pdfs with page group included in a single page
+>] <algoGaseous.png, id=172, 1106.1325pt x 669.50125pt>
+File: algoGaseous.png Graphic file (type png)
+ <use algoGaseous.png>
+Package pdftex.def Info: algoGaseous.png used on input line 328.
+(pdftex.def)             Requested size: 387.15218pt x 234.32895pt.
+
+Overfull \hbox (42.15218pt too wide) in paragraph at lines 328--329
+[][] 
+ []
+
+<algoAccuracyVapour.pdf, id=173, 361.35pt x 199.74625pt>
+File: algoAccuracyVapour.pdf Graphic file (type pdf)
+
+<use algoAccuracyVapour.pdf>
+Package pdftex.def Info: algoAccuracyVapour.pdf used on input line 332.
+(pdftex.def)             Requested size: 307.14896pt x 169.78511pt.
+ <kTerm2.pdf, id=174, 361.35pt x 216.81pt>
+File: kTerm2.pdf Graphic file (type pdf)
+
+<use kTerm2.pdf>
+Package pdftex.def Info: kTerm2.pdf used on input line 336.
+(pdftex.def)             Requested size: 307.14896pt x 184.28935pt.
+ <algoAccuracyVapourNew.pdf, id=175, 361.35pt x 172.645pt>
+File: algoAccuracyVapourNew.pdf Graphic file (type pdf)
+
+<use algoAccuracyVapourNew.pdf>
+Package pdftex.def Info: algoAccuracyVapourNew.pdf used on input line 340.
+(pdftex.def)             Requested size: 307.14896pt x 146.74892pt.
+
+<algoComplexity210.pdf, id=176, 658.46pt x 169.63374pt>
+File: algoComplexity210.pdf Graphic file (type pdf)
+
+<use algoComplexity210.pdf>
+Package pdftex.def Info: algoComplexity210.pdf used on input line 341.
+(pdftex.def)             Requested size: 395.07906pt x 101.78102pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 340--342
+[][]
+ []
+
+
+Overfull \hbox (50.07906pt too wide) in paragraph at lines 340--342
+[] 
+ []
+
+<GasPhaseGibbsEnergy.pdf, id=177, 369.38pt x 215.80624pt>
+File: GasPhaseGibbsEnergy.pdf Graphic file (type pdf)
+
+<use GasPhaseGibbsEnergy.pdf>
+Package pdftex.def Info: GasPhaseGibbsEnergy.pdf used on input line 345.
+(pdftex.def)             Requested size: 221.6297pt x 129.48474pt.
+ [15 <./algoGaseous.png>] [16 <./algoAccuracyVapour.pdf> <./kTerm2.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./kTerm2.pdf): PDF inclusion
+: multiple pdfs with page group included in a single page
+>] [17 <./algoAccuracyVapourNew.pdf> <./algoComplexity210.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./algoComplexity210.pdf): PD
+F inclusion: multiple pdfs with page group included in a single page
+> <./GasPhaseGibbsEnergy.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./GasPhaseGibbsEnergy.pdf): 
+PDF inclusion: multiple pdfs with page group included in a single page
+>]
+Underfull \hbox (badness 1226) in paragraph at lines 363--364
 []\OT1/cmr/m/n/10 Wolfram Math-e-mat-ica, "Some Notes On In-ter-nal Im-ple-men-
 ta-tion",
  []
 
-[14 <./algoCorrect.pdf>] (./myPaper2.aux) ) 
+[18] (./myPaper2.aux) ) 
 Here is how much of TeX's memory you used:
- 2470 strings out of 492995
- 32994 string characters out of 6132705
- 108739 words of memory out of 5000000
- 5981 multiletter control sequences out of 15000+600000
+ 2521 strings out of 492995
+ 34206 string characters out of 6132705
+ 108796 words of memory out of 5000000
+ 6023 multiletter control sequences out of 15000+600000
  13075 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,13n,26p,1603b,219s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2017/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2017/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2017/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmbx5.pfb></usr/local/texlive/2017/texmf-dist/font
-s/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2017/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2017/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2017/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmr10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmr12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmr17.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmr5.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmr7.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmsy10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmsy5.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmsy7.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmti10.pfb>
-Output written on myPaper2.pdf (14 pages, 465081 bytes).
+ 39i,13n,26p,1796b,219s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2017/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmbx10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmbx12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmbx5.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmbx7.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmbx9.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmex10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmmi10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmmi5.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mmi7.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
+10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12
+.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.p
+fb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb>
+</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></u
+sr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></us
+r/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/
+local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/lo
+cal/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on myPaper2.pdf (18 pages, 1047069 bytes).
 PDF statistics:
- 192 PDF objects out of 1000 (max. 8388607)
- 132 compressed objects within 2 object streams
+ 328 PDF objects out of 1000 (max. 8388607)
+ 217 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 31 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 76 words of extra memory for PDF output out of 10000 (max. 10000000)
 
